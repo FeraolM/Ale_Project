@@ -53,7 +53,7 @@ public class SampleController implements Initializable{
 		
 		  try {
 		  
-		  ResultSet as = DatabaseHelper.getInstance("SELECT * FROM users");
+		  ResultSet as = DatabaseHelper.getInstance();
 		  
 		  while (as.next()){
 		  
