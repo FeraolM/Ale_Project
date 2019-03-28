@@ -147,31 +147,11 @@
 
 /*Dialog styling*/
 .dialog-button{
-    -fx-border-color: #fff;
+    -fx-border-color: -fx-color-1;
     -fx-text-fill: white;
-    -fx-border-radius-left: 1px;
+    -fx-border-radius: 1px;
     -fx-background-radius: 3px;
 }
-
-.button-home{
-    -fx-background-color: #3f3f3f;
-    -fx-text-fill: white;
-    -fx-border-radius: 0px;
-     -fx-border-radius-right:15px;
-    -fx-border-color: #232f34;
-    -fx-background-radius: 0px;
-
-}
-
-
-
-
-.button-home:hover, .button-home:focused{
-    -fx-border-color: #4a6572;
-    -fx-background-color: #4a6572;
-    -fx-text-fill: -fx-primary;
-}
-
 
 .dialog-button:hover{
     -fx-background-color: -fx-color-1;
