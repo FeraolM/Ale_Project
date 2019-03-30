@@ -47,8 +47,7 @@ public class SampleController implements Initializable{
     	
     	Lusername= Luname.getCharacters().toString();
     	Lpassword = Lpass.getCharacters().toString();
-    	
-    	
+    	 	
         			
 		  try {
 		  
@@ -76,9 +75,7 @@ public class SampleController implements Initializable{
 					  	
 							}
 
-			  	    	
-						
-			  			
+			  	    			  			
 					}
 			  		
 			  		else {
