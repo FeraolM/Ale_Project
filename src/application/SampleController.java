@@ -23,7 +23,7 @@ public class SampleController implements Initializable{
 	int n = 4;
 	
 	@FXML
-	    private JFXButton loginbtn; //ale 
+	    private JFXButton loginbtn; 
 
 	    @FXML
 	    private JFXTextField Luname;
