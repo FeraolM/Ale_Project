@@ -1,6 +1,7 @@
 System administrator->0
 keble administrator->1
 record officer->2
+customer->3
 
 
 id,username,password,type,is_active,reg_date
@@ -11,9 +12,6 @@ password->alulam
 
    $passsword = hash256($password);
    if (password==$password) {
-
-
-
    	
 
 

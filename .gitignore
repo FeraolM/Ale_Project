@@ -14,5 +14,5 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-.classpath
 .project
+.account_images/

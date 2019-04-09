@@ -7,7 +7,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/User/Downloads/jfoenix-9.0.8.jar"/>
-	<classpathentry kind="lib" path="D:/Files/Unsorted/Fm HARD DISK/New users/new desktop/eclipse-workspace/Qr Code Generator/Libs/mysql-connector-java-8.0.11.jar"/>
+	<classpathentry kind="lib" path="libs/webcam-capture-0.3.12.jar"/>
+	<classpathentry kind="lib" path="libs/jfoenix-9.0.8.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-8.0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

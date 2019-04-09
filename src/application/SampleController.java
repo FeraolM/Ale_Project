@@ -3,7 +3,6 @@ package application;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -14,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -45,7 +45,7 @@ public class SampleController implements Initializable{
     	String Lusername,Lpassword;
     
     	
-    	Lusername= Luname.getCharacters().toString();
+    	Lusername = Luname.getCharacters().toString();
     	Lpassword = Lpass.getCharacters().toString();
     	 	
         			
@@ -53,7 +53,7 @@ public class SampleController implements Initializable{
 		  
 		  ResultSet as = DatabaseHelper.getInstance();
 		  
-		  while (as.next()){
+		  as.next();
 		  
 			  		if (Lusername.equals( as.getString("username")) & Lpassword.equals(as.getString("password"))) {
 			  			
@@ -63,6 +63,7 @@ public class SampleController implements Initializable{
 					  	    	
 					  	    	Parent root1;
 					  			try {
+					  				((Node)event.getSource()).getScene().getWindow().hide();
 					  				root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
 					  		    	stage.setScene(new Scene(root1));  
@@ -86,7 +87,7 @@ public class SampleController implements Initializable{
 			  	
 		  }
 		  
-		  }
+		  
 		  
 		  catch (Exception e) {
 		  
@@ -96,13 +97,15 @@ public class SampleController implements Initializable{
 		 
 
     	
-   
-		 
     }
+    
+}
+		 
+    
     
 
 
-}
+
     
 
 
