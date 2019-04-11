@@ -32,8 +32,8 @@
 
 .button:hover, .button:focused{
     -fx-border-color: -fx-secondary;
-    -fx-background-color: -fx-secondary;
-    -fx-text-fill: -fx-primary;
+    -fx-background-color: #14161a;
+    -fx-text-fill: -fx-primarytext;
 }
 
 .text-field
@@ -154,7 +154,7 @@
 }
 
 .button-home{
-    -fx-background-color: #3f3f3f;
+    -fx-background-color: #171717;
     -fx-text-fill: white;
     -fx-border-radius: 0px;
      -fx-border-radius-right:15px;
@@ -168,13 +168,13 @@
 
 .button-home:hover, .button-home:focused{
     -fx-border-color: #4a6572;
-    -fx-background-color: #4a6572;
+    -fx-background-color: #171717;
     -fx-text-fill: -fx-primary;
 }
 
 
 .dialog-button:hover{
-    -fx-background-color: -fx-color-1;
+    -fx-background-color: #171717;
     -fx-border-color: derive(-fx-color-1, -20%);
     -fx-text-fill: white;
 }
