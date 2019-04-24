@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <JFXButton fx:id="loginbtn" buttonType="RAISED" layoutX="148.0" layoutY="198.0" onAction="#loginfn" prefHeight="39.0" prefWidth="106.0" stylesheets="@application.css" text="Login" textFill="WHITE">
-         <graphic>
-            <Icon content="DONE" prefHeight="39.0" prefWidth="26.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" />
-         </graphic></JFXButton>
+      <JFXButton fx:id="loginbtn" buttonType="RAISED" layoutX="148.0" layoutY="198.0" onAction="#loginfn" prefHeight="39.0" prefWidth="106.0" stylesheets="@application.css" text="Login" textFill="WHITE" />
 
       <JFXTextField fx:id="Luname" blendMode="SCREEN" focusColor="#030303" labelFloat="true" layoutX="56.0" layoutY="71.0" prefHeight="38.0" prefWidth="289.0" promptText="Username" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE" />
       <JFXPasswordField fx:id="Lpass" blendMode="SCREEN" labelFloat="true" layoutX="57.0" layoutY="135.0" prefHeight="38.0" prefWidth="289.0" promptText="Password" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE" />
-      <Icon content="ACCOUNT_BOX" layoutX="14.0" layoutY="71.0" prefHeight="38.0" prefWidth="35.0" style="-fx-text-fill: #fff;" />
-      <Icon content="LOCK" layoutX="20.0" layoutY="150.0" style="-fx-text-fill: #fff;" />
+ 
+      <ImageView fitHeight="79.0" fitWidth="92.0" layoutX="156.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
 
    </children>
 </AnchorPane>

@@ -13,6 +13,35 @@ public class DatabaseHelper {
 	
 	static ResultSet resultSet;
 	
+	static Connection DatabaseHelperinstance;
+	
+		public static Connection getConnection () {
+			
+			if (DatabaseHelperinstance == null) {
+				
+				try {
+					
+					DatabaseHelperinstance = DriverManager.getConnection("jdbc:mysql://localhost:3306/kb_system_db", "root", "");
+			
+					return DatabaseHelperinstance;
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			else {
+			
+				
+				return DatabaseHelperinstance;
+			}
+			
+			return DatabaseHelperinstance;
+					
+		
+		}
+	
 		public static ResultSet getInstance () {
 			
 			try {
