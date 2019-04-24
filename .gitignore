@@ -1,6 +1,5 @@
 .metadata
 *target*
-*.jar
 *.war
 *.ear
 *.class
@@ -16,3 +15,4 @@ local.properties
 .recommenders
 .project
 .account_images/
+account_images/
