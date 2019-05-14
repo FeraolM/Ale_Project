@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
@@ -54,7 +55,6 @@
                            </toggleGroup></JFXRadioButton>
                         <JFXRadioButton fx:id="kbadminrd" layoutX="569.0" layoutY="207.0" text="Keble Admin" textFill="WHITE" toggleGroup="$admintype" />
                         <JFXRadioButton fx:id="recadminrd" layoutX="431.0" layoutY="207.0" text="Record Officer" textFill="WHITE" toggleGroup="$admintype" />
-                        <JFXRadioButton fx:id="custrd" layoutX="673.0" layoutY="207.0" selected="true" text="Customer" textFill="WHITE" toggleGroup="$admintype" />
                         <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="491.0" layoutY="371.0" onAction="#createAccount" prefHeight="30.0" prefWidth="78.0" ripplerFill="WHITE" stylesheets="@application.css" text="Create" />
                         <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
                         <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="38.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
@@ -66,9 +66,12 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Settings">
+            <Tab text="Users">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="lv1" layoutX="34.0" layoutY="27.0" prefHeight="200.0" prefWidth="926.0" />
+                     </children></AnchorPane>
                </content>
             </Tab>
          </tabs>

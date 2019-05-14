@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXSnackbar?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #344955;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KbadminController">
+   <children>
+      <JFXTabPane layoutX="6.0" prefHeight="600.0" prefWidth="994.0">
+         <tabs>
+            <Tab text="View">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0">
+                     <children>
+                        <VBox prefHeight="550.0" prefWidth="138.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="138.0" />
+                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
+                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
+                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
+                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
+                     <children>
+                        <JFXTextField fx:id="etusername" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="38.0" layoutY="33.0" prefHeight="38.0" prefWidth="346.0" promptText="Full Name" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="38.0" layoutY="97.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="97.0" prefHeight="38.0" prefWidth="255.0" promptText="Phone Number" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword11" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="34.0" layoutY="203.0" prefHeight="38.0" prefWidth="177.0" promptText="Place of birth" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword111" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="239.0" layoutY="203.0" prefHeight="38.0" prefWidth="150.0" promptText="Kebele" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="kbadminrd" layoutX="498.0" layoutY="367.0" text="Customer" textFill="WHITE">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="admintype" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="recadminrd" layoutX="360.0" layoutY="367.0" text="Record Officer" textFill="WHITE" toggleGroup="$admintype" />
+                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="463.0" layoutY="508.0" onAction="#createAccount" prefHeight="30.0" prefWidth="78.0" ripplerFill="WHITE" stylesheets="@application.css" text="Create" />
+                        <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
+                        <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="679.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
+                           </viewport>
+                        </ImageView>
+                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" onAction="#chooseimage" prefHeight="30.0" prefWidth="190.0" ripplerFill="WHITE" stylesheets="@application.css" text="Choose Photo..." />
+                        <DatePicker layoutX="152.0" layoutY="158.0" />
+                        <Label layoutX="38.0" layoutY="160.0" text="Date of birth" textFill="#f5f5f5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="etusername1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="439.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="Wereda" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etusername11" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="580.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword12" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="151.0" prefHeight="38.0" prefWidth="255.0" promptText="Job" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword121" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="463.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="etpassword1211" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="743.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </JFXTextField>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Users">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="lv1" layoutX="34.0" layoutY="27.0" prefHeight="200.0" prefWidth="926.0" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

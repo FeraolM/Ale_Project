@@ -1,8 +1,5 @@
 package application;
 	
-import java.sql.SQLException;
-
-import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -34,12 +31,11 @@ public class Main extends Application {
 		
 		System.out.println("Application Started");
 		
-	   Test.testsdf();
-	   
-	   Test.testsdf();
-	   
-	
-	
+		/*
+		 * Test.testsdf();
+		 * 
+		 * Test.testsdf();
+		 */
 	
 		launch(args);
 	

@@ -9,14 +9,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Labeled;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -72,6 +76,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private JFXButton choosephotobtn;
+    
+    @FXML
+    private ListView<javafx.scene.control.Label> lv1;
     
     
   static  AdminController minstance;
@@ -192,6 +199,12 @@ public class AdminController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		  JFXListView<javafx.scene.control.Label> list = new JFXListView<javafx.scene.control.Label>();
+		
+		
+		
+		
 		
 		
 	}
