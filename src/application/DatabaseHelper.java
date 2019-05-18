@@ -30,15 +30,10 @@ public class DatabaseHelper {
 					e.printStackTrace();
 				}
 			}
-			
-			else {
-			
+					
 				
 				return DatabaseHelperinstance;
-			}
 			
-			return DatabaseHelperinstance;
-					
 		
 		}
 	
@@ -61,14 +56,14 @@ public class DatabaseHelper {
 			
 			
 		}
-			public static ResultSet Adduser (String username, String password, int type,String location) {
+			public static int Adduser (String username, String password, int type,String location) {
 				
-				
+				int a = 0;
 			
 						
 						try {
 							
-							int a; //used for sql querry
+							
 							
 							Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kb_system_db", "root", "");
 							
@@ -87,10 +82,52 @@ public class DatabaseHelper {
 							e.printStackTrace();
 						}
 								
-						return resultSet;
+						return a;
 						
 						
 					}
+			
+			
+			public static ResultSet Login (String username) {
+				
+				ResultSet loginrs = null; 
+				
+				
+				
+				try {
+					
+				
+					
+					Connection connection = DatabaseHelper.getConnection();
+					
+					Statement statement= connection.createStatement();	
+					
+					//System.out.println("INSERT INTO users (username, password, type, is_active) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ "\"0\");");
+					
+					
+					loginrs = statement.executeQuery("SELECT * FROM users WHERE username=\""+username+"\"");
+					
+			/*
+			 * while (a.next()) {
+			 * 
+			 * System.out.println(a.getString("username") + a.getString("id"));
+			 * 
+			 * }
+			 */
+					
+				//	System.out.println(String.valueOf(a));
+					
+					
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+						
+				return loginrs ;
+				
+				
+			}
 
 
 			 public static String[] splitPath(String pathString) {

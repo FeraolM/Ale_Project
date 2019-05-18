@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
@@ -8,7 +9,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
@@ -71,14 +71,14 @@
                               <ToggleGroup fx:id="admintype" />
                            </toggleGroup></JFXRadioButton>
                         <JFXRadioButton fx:id="recadminrd" layoutX="360.0" layoutY="367.0" text="Record Officer" textFill="WHITE" toggleGroup="$admintype" />
-                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="463.0" layoutY="508.0" onAction="#createAccount" prefHeight="30.0" prefWidth="78.0" ripplerFill="WHITE" stylesheets="@application.css" text="Create" />
+                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="463.0" layoutY="508.0" prefHeight="30.0" prefWidth="78.0" ripplerFill="WHITE" stylesheets="@application.css" text="Create" />
                         <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
                         <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="679.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
                            <viewport>
                               <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
                            </viewport>
                         </ImageView>
-                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" onAction="#chooseimage" prefHeight="30.0" prefWidth="190.0" ripplerFill="WHITE" stylesheets="@application.css" text="Choose Photo..." />
+                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" prefHeight="30.0" prefWidth="190.0" ripplerFill="WHITE" stylesheets="@application.css" text="Choose Photo..." />
                         <DatePicker layoutX="152.0" layoutY="158.0" />
                         <Label layoutX="38.0" layoutY="160.0" text="Date of birth" textFill="#f5f5f5">
                            <font>
@@ -117,7 +117,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="lv1" layoutX="34.0" layoutY="27.0" prefHeight="200.0" prefWidth="926.0" />
+                        <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
                      </children></AnchorPane>
                </content>
             </Tab>

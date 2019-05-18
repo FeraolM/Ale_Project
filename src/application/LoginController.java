@@ -22,11 +22,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class SampleController implements Initializable{
+public class LoginController implements Initializable{
 	
-	int n = 4;
+		int n = 4;
+		
+		public final int SYSTEM_ADMINISTRATOR = 0;
+		
+		public final int KB_ADMINISTRATOR = 1;
+		
+		public final int RECORD_OFFICER = 2;
 	
-	@FXML
+		@FXML
 	    private JFXButton loginbtn; 
 
 	    @FXML
@@ -58,19 +64,23 @@ public class SampleController implements Initializable{
         			
 		  try {
 		  
-		  ResultSet as = DatabaseHelper.getInstance();
-		  
-		  as.next();
+		  ResultSet as = DatabaseHelper.Login(Lusername);
+		 
+		  while (as.next()) {
+			
 		  
 			  		if (Lusername.equals( as.getString("username")) & Lpassword.equals(as.getString("password"))) {
 			  			
-			  				if (as.getBoolean("is_active") & as.getInt("type") == 1) {
+			  			
+	  			
+			  				if (as.getBoolean("is_active") & as.getInt("type") == SYSTEM_ADMINISTRATOR) { //System
 			  					
 			  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
 					  	    	
 					  	    	Parent root1;
 					  			try {
 					  				((Node)event.getSource()).getScene().getWindow().hide();
+					  				
 					  				root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
 					  		    	stage.setScene(new Scene(root1));  
@@ -82,6 +92,26 @@ public class SampleController implements Initializable{
 					  			}
 					  	
 							}
+			  				
+			  				else if (as.getBoolean("is_active") & as.getInt("type") == KB_ADMINISTRATOR) {
+			  					
+			  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Kbadmin.fxml"));
+					  	    	
+					  	    	Parent root1;
+					  			try {
+					  				((Node)event.getSource()).getScene().getWindow().hide();
+					  				
+					  				root1 = (Parent) fxmlLoader.load();
+					  				Stage stage = new Stage();
+					  		    	stage.setScene(new Scene(root1));  
+					  		    	stage.show();
+					  		    	 
+					  			} catch (IOException e) {
+					  				// TODO Auto-generated catch block
+					  				e.printStackTrace();
+					  			}
+								
+							}
 
 			  	    			  			
 					}
@@ -91,7 +121,8 @@ public class SampleController implements Initializable{
 			  			
 						System.out.println("Login error \n" + Lusername + Lpassword);
 					}
-			  	
+			  
+		  }
 		  }
 		  
 		  
