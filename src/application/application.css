@@ -18,7 +18,7 @@
 
 .glyph-icon
 {
-    -fx-fill: -fx-primarytext;
+    -fx-fill:#fff;
 }
 
 .button{
@@ -40,7 +40,10 @@
 {
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;
-    -jfx-focus-color: -fx-secondary;
+
+    -jfx-focus-color: #fff;
+	-jfx-unfocus-color:#fff;
+	
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
@@ -57,7 +60,7 @@
 
 /*TablPane styling*/
 .tab{
-    -fx-background-color: -fx-primary;
+    -fx-background-color: #fff;
 }
 
 .tab-header-background{

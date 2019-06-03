@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXRadioButton?>
@@ -11,9 +12,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #344955;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KbadminController">
@@ -22,36 +23,32 @@
          <tabs>
             <Tab text="View">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0">
-                     <children>
-                        <VBox prefHeight="550.0" prefWidth="138.0">
-                           <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="138.0" />
-                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
-                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
-                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
-                              <JFXButton alignment="CENTER" prefHeight="100.0" prefWidth="138.0" ripplerFill="#fafafa" styleClass="button-home" stylesheets="@application.css" text="Button" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
                </content>
+               <graphic>
+                  <Icon content="CONTACTS" />
+               </graphic>
             </Tab>
-            <Tab text="Add">
+            <Tab style="-fx-background-color: transparent;" text="Add">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #0125;">
                      <children>
-                        <JFXTextField fx:id="etusername" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="38.0" layoutY="33.0" prefHeight="38.0" prefWidth="346.0" promptText="Full Name" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                        <ImageView fitHeight="575.0" fitWidth="1078.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 80%;">
+                           <image>
+                              <Image url="@../../res/bg/mountain_lake_scenery_5k-1280x720.jpg" />
+                           </image>
+                        </ImageView>
+                        <JFXTextField fx:id="etusername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="33.0" prefHeight="38.0" prefWidth="346.0" promptText="Full Name" style="-jfx-focus-color: #fff; -fx-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="etpassword" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="38.0" layoutY="97.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                        <JFXTextField fx:id="etpassword" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="97.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="etpassword1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="97.0" prefHeight="38.0" prefWidth="255.0" promptText="Phone Number" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                        <JFXTextField fx:id="etpassword1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="97.0" prefHeight="38.0" prefWidth="255.0" promptText="Phone Number" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -71,14 +68,17 @@
                               <ToggleGroup fx:id="admintype" />
                            </toggleGroup></JFXRadioButton>
                         <JFXRadioButton fx:id="recadminrd" layoutX="360.0" layoutY="367.0" text="Record Officer" textFill="WHITE" toggleGroup="$admintype" />
-                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="463.0" layoutY="508.0" prefHeight="30.0" prefWidth="78.0" ripplerFill="WHITE" stylesheets="@application.css" text="Create" />
+                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="439.0" layoutY="500.0" prefHeight="44.0" prefWidth="126.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Create">
+                           <graphic>
+                              <Icon content="HELP_OUTLINE" style="-fx-text-fill: #fff;" />
+                           </graphic></JFXButton>
                         <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
                         <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="679.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
                            <viewport>
                               <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
                            </viewport>
                         </ImageView>
-                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" prefHeight="30.0" prefWidth="190.0" ripplerFill="WHITE" stylesheets="@application.css" text="Choose Photo..." />
+                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" prefHeight="51.0" prefWidth="190.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Choose Photo..." />
                         <DatePicker layoutX="152.0" layoutY="158.0" />
                         <Label layoutX="38.0" layoutY="160.0" text="Date of birth" textFill="#f5f5f5">
                            <font>
@@ -110,15 +110,27 @@
                               <Font size="17.0" />
                            </font>
                         </JFXTextField>
+                        <Icon content="PHOTO_CAMERA" layoutX="557.0" layoutY="417.0" style="-fx-text-fill: #fff;" />
                      </children></AnchorPane>
               </content>
+               <graphic>
+                  <Icon content="ADD_CIRCLE_OUTLINE" />
+               </graphic>
             </Tab>
-            <Tab text="Users">
+            <Tab text="Renew Id">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
                      </children></AnchorPane>
+               </content>
+               <graphic>
+                  <Icon content="AUTORENEW" />
+               </graphic>
+            </Tab>
+            <Tab text="View">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
                </content>
             </Tab>
          </tabs>

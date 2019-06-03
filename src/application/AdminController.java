@@ -1,11 +1,15 @@
 package application;
 
 
+import java.awt.Button;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
-
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -14,18 +18,28 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.xml.internal.ws.org.objectweb.asm.Label;
+import com.jfoenix.controls.JFXToggleButton;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 public class AdminController implements Initializable {
@@ -41,7 +55,10 @@ public class AdminController implements Initializable {
 	public static boolean IS_PHOTO_SELECTED = false;
 	
     @FXML
-    private AnchorPane anch;
+    public static AnchorPane anch;
+    
+    @FXML
+    public static StackPane stkpane;
 	
     @FXML
     private  JFXTextField etusername;
@@ -82,7 +99,27 @@ public class AdminController implements Initializable {
     
     
   static  AdminController minstance;
+  
+  @FXML
+  private TableView<AdminUsers> table_info;
+  
+  @FXML
+  private TableColumn<AdminUsers,String> colid;
 
+  @FXML
+  private TableColumn<AdminUsers,String> colname;
+
+  @FXML
+  private TableColumn<AdminUsers,String> coltype;
+
+  @FXML
+  private TableColumn<AdminUsers,String> colactive;
+  
+  @FXML
+  private TableColumn<AdminUsers,String> colbutton;
+  
+ public static ObservableList<AdminUsers> table_data;
+ 
     
     @FXML
     void chooseimage(ActionEvent event) {
@@ -203,14 +240,103 @@ public class AdminController implements Initializable {
 		  JFXListView<javafx.scene.control.Label> list = new JFXListView<javafx.scene.control.Label>();
 		
 		
+		initTable();
 		
-		
-		
+		loadData();
 		
 	}
 	
-		
 	
+	private void initTable() {
+		
+		initCols();
+		
+	}
+	
+	private void initCols() {
+		
+		colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+		
+		colname.setCellValueFactory(new PropertyValueFactory<>("username"));
+		
+		coltype.setCellValueFactory(new PropertyValueFactory<>("Type"));
+		
+		colactive.setCellValueFactory(new PropertyValueFactory<>("Active"));
+		
+		colbutton.setCellValueFactory(new PropertyValueFactory<>("update"));
+		
+		editableCols();
+		
+	}
+	
+	private void editableCols() {
+		
+		colid.setCellFactory(TextFieldTableCell.forTableColumn());
+	
+		colid.setOnEditCommit(e->{
+			
+				e.getTableView().getItems().get(e.getTablePosition().getRow()).setId(e.getNewValue());
+			
+			
+		});
+		
+		
+		colname.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		colname.setOnEditCommit(e->{
+			
+				e.getTableView().getItems().get(e.getTablePosition().getRow()).setUsername(e.getNewValue());
+			
+			
+		});
+		
+		coltype.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		coltype.setOnEditCommit(e->{
+			
+				e.getTableView().getItems().get(e.getTablePosition().getRow()).setType(e.getNewValue());
+			
+			
+		});
+		
+	table_info.setEditable(true);
+	
+	}
+	
+		
+	private void loadData() {
+		
+		
+	 table_data = FXCollections.observableArrayList();
+		
+		try {
+			
+			ResultSet aResultSet = DatabaseHelper.getAllAdminUsers();
+			
+			while (aResultSet.next()) {
+				
+				table_data.add(new AdminUsers(aResultSet.getString("id"),
+						aResultSet.getString("username"),
+						aResultSet.getString("type"),
+						aResultSet.getString("is_active"),
+						new JFXToggleButton(),
+						aResultSet.getString("is_active")));
+				
+				
+			
+				
+			}
+				
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		table_info.setItems(table_data);
+	}
 	
 }
 
