@@ -13,6 +13,7 @@ import java.util.stream.StreamSupport;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
+import com.sun.media.sound.EmergencySoundbank;
 
 import javafx.scene.image.ImageView;
 
@@ -26,6 +27,7 @@ public class General {
 	 
 	 static String accountimagesdirectory = "\\account_images";
 	 
+	 static String residencedirectory = "\\residence_images";
 	 
 	 
 	 	public static void createaccountimagedirectory() {
@@ -35,6 +37,22 @@ public class General {
 			 	if (firFile.exists()) {
 			 		
 			 		System.out.println("Directory " + accountimagesdirectory + " already exist");
+				}
+			 	
+			 	else {
+			 		
+					firFile.mkdir();
+				}
+			
+		}
+	 	
+	 	public static void createresidenceimageDirectory() {
+	 		
+	 		 File firFile = new File(currentDirectory+ residencedirectory);
+			 
+			 	if (firFile.exists()) {
+			 		
+			 		System.out.println("Directory " + residencedirectory + " already exist");
 				}
 			 	
 			 	else {
@@ -113,6 +131,75 @@ public class General {
 			
 		}
 		
+		
+		public static void savefileresidenceimage(File selectedfile,File usrphotopth, ImageView imageView,JFXSnackbar snackbar,JFXSnackbarLayout aSnackbarLayout) {
+		 	
+			createresidenceimageDirectory();
+			
+			 File newphotoFile = new File (currentDirectory + residencedirectory + "\\"+selectedfile.getName());
+			 			 
+			 String photofilename = selectedfile.getName();
+			
+			 String photofileextension = Fileutility.getFileExtension(selectedfile);
+			 
+			 String newphotofilename;
+			 
+			 File newphotofilewithpath = null;
+			try {
+				
+				newphotofilename = currentDirectory + residencedirectory + "\\"+ General.hashfileasd(selectedfile) + photofileextension;
+				
+				newphotofilewithpath  = new File(newphotofilename);
+				 
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			
+						 
+				try {
+					
+					
+					System.out.println(usrphotopth.toString() + "\n" + newphotoFile.getAbsolutePath().toString() + General.hashfileasd(selectedfile));
+					
+					
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+								
+			 
+				try {
+																
+					Files.copy(usrphotopth.toPath(),newphotofilewithpath.toPath());
+					
+					aSnackbarLayout = new JFXSnackbarLayout("sfgdgdg");
+					
+					aSnackbarLayout.setStyle("-fx-background-color: #fff;"
+											+ "-fx-background-radius: 15px;"
+											+ " -fx-border-radius: 20px;"
+											+ "-fx-pref-height : 10;"
+											+ "-fx-padding:0;");
+					
+					aSnackbarLayout.setToast("User created successfully");
+					
+					
+					
+					 snackbar.fireEvent(new SnackbarEvent(aSnackbarLayout ));	
+					
+					
+					
+					
+				} catch (IOException e) {
+					
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 
+			
+		
+	}
+		
 
 
 
@@ -173,7 +260,7 @@ public class General {
 	
 	/* file */
 	
-	public static String makepathfordb(File locationstring) {
+	public static String makepathfordb(File locationstring) { //create path for the kebele administrator
 	
 				String accdirectory = "\\\\account_images\\\\";
 			 	
@@ -199,6 +286,33 @@ public class General {
 		 	
 			return newphotofilename;
 	}
+	
+	public static String makepathfordbforresidence(File locationstring) { //create path for the residence
+		
+		String accdirectory = "\\\\residence_images\\\\";
+	 	
+	 	String photofileextension = Fileutility.getFileExtension(locationstring);
+		 
+		 String newphotofilename = null;
+
+		 File newphotofilewithpath = null;
+		try {
+			
+			newphotofilename = accdirectory + General.hashfileasd(locationstring) + photofileextension;
+			
+			System.out.println("general 207 " + newphotofilename);
+			 
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+	 	
+	 	
+ 	
+	 System.out.println("New directory line 199" + newphotofilename);
+ 	
+	return newphotofilename;
+}
 	
 	 public static String[] splitPath(String pathString) {
 	      Path path = Paths.get(pathString);
@@ -259,6 +373,24 @@ public class General {
 		        return result.toString();
 
 		    }
+		    
+		    
+		    
+/******* Validity check *****/
+	
+	    	
+		    
+		    
+		    public boolean isblank(String as[]) {
+		    		    
+		    		
+		    	
+		    	
+		    	  //  return (strvalue == null) || (strvalue.trim().length() == 0 || strvalue.isEmpty());
+		    	
+		    	return true;
+			}
+		    
 
 		
 }

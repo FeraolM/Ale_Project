@@ -96,8 +96,7 @@ public class DatabaseHelper {
 				
 				try {
 					
-				
-					
+								
 					Connection connection = DatabaseHelper.getConnection();
 					
 					Statement statement= connection.createStatement();	
@@ -128,6 +127,8 @@ public class DatabaseHelper {
 				
 				
 			}
+			
+		
 
 
 			 public static String[] splitPath(String pathString) {
@@ -178,4 +179,45 @@ public class DatabaseHelper {
 					
 				}
 		
+			 public static ResultSet getlastinsertedid () {
+					
+					ResultSet loginrs = null; 
+					
+					
+					
+					try {
+						
+									
+						Connection connection = DatabaseHelper.getConnection();
+						
+						Statement statement= connection.createStatement();	
+						
+						//System.out.println("INSERT INTO users (username, password, type, is_active) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ "\"0\");");
+						
+						
+						loginrs = statement.executeQuery("SELECT LAST_INSERT_ID();");
+						
+				/*
+				 * while (a.next()) {
+				 * 
+				 * System.out.println(a.getString("username") + a.getString("id"));
+				 * 
+				 * }
+				 */
+						
+					//	System.out.println(String.valueOf(a));
+						
+						
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+							
+					return loginrs ;
+					
+					
+				}
+			 
+			 
 }

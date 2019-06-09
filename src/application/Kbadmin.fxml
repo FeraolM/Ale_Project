@@ -2,8 +2,8 @@
 
 <?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXListView?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -11,129 +11,144 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
 
-<AnchorPane fx:id="anch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #344955;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KbadminController">
+<StackPane fx:id="stkpane" prefHeight="572.0" prefWidth="940.0" stylesheets="@basic.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KbadminController">
    <children>
-      <JFXTabPane layoutX="6.0" prefHeight="600.0" prefWidth="994.0">
-         <tabs>
-            <Tab text="View">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
-               </content>
-               <graphic>
-                  <Icon content="CONTACTS" />
-               </graphic>
-            </Tab>
-            <Tab style="-fx-background-color: transparent;" text="Add">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #0125;">
-                     <children>
-                        <ImageView fitHeight="575.0" fitWidth="1078.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 80%;">
-                           <image>
-                              <Image url="@../../res/bg/mountain_lake_scenery_5k-1280x720.jpg" />
-                           </image>
-                        </ImageView>
-                        <JFXTextField fx:id="etusername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="33.0" prefHeight="38.0" prefWidth="346.0" promptText="Full Name" style="-jfx-focus-color: #fff; -fx-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="97.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="97.0" prefHeight="38.0" prefWidth="255.0" promptText="Phone Number" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword11" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="34.0" layoutY="203.0" prefHeight="38.0" prefWidth="177.0" promptText="Place of birth" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword111" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="239.0" layoutY="203.0" prefHeight="38.0" prefWidth="150.0" promptText="Kebele" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXRadioButton fx:id="kbadminrd" layoutX="498.0" layoutY="367.0" text="Customer" textFill="WHITE">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="admintype" />
-                           </toggleGroup></JFXRadioButton>
-                        <JFXRadioButton fx:id="recadminrd" layoutX="360.0" layoutY="367.0" text="Record Officer" textFill="WHITE" toggleGroup="$admintype" />
-                        <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="439.0" layoutY="500.0" prefHeight="44.0" prefWidth="126.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Create">
-                           <graphic>
-                              <Icon content="HELP_OUTLINE" style="-fx-text-fill: #fff;" />
-                           </graphic></JFXButton>
-                        <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
-                        <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="679.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
-                           <viewport>
-                              <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
-                           </viewport>
-                        </ImageView>
-                        <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="407.0" layoutY="405.0" prefHeight="51.0" prefWidth="190.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Choose Photo..." />
-                        <DatePicker layoutX="152.0" layoutY="158.0" />
-                        <Label layoutX="38.0" layoutY="160.0" text="Date of birth" textFill="#f5f5f5">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <JFXTextField fx:id="etusername1" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="439.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="Wereda" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etusername11" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="580.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword12" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="151.0" prefHeight="38.0" prefWidth="255.0" promptText="Job" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword121" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="463.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword1211" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="743.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <Icon content="PHOTO_CAMERA" layoutX="557.0" layoutY="417.0" style="-fx-text-fill: #fff;" />
-                     </children></AnchorPane>
-              </content>
-               <graphic>
-                  <Icon content="ADD_CIRCLE_OUTLINE" />
-               </graphic>
-            </Tab>
-            <Tab text="Renew Id">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
-                     </children></AnchorPane>
-               </content>
-               <graphic>
-                  <Icon content="AUTORENEW" />
-               </graphic>
-            </Tab>
-            <Tab text="View">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
-               </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
+      <AnchorPane prefHeight="279.0" prefWidth="552.0" stylesheets="@basic.css">
+         <children>
+            <JFXTabPane prefHeight="572.0" prefWidth="940.0">
+               <tabs>
+                  <Tab text="View">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0">
+                           <children>
+                              <StackedFontIcon />
+                              <FontIcon />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <Icon content="CONTACTS" />
+                     </graphic>
+                  </Tab>
+                  <Tab style="-fx-background-color: transparent;" text="Add">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #0125;">
+                           <children>
+                              <ImageView fitHeight="575.0" fitWidth="1078.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 100;">
+                                 <image>
+                                    <Image url="@../../res/bg/starry-night-over-the-matterhorn-wallpaper-for-1920x1080-63-426.jpg" />
+                                 </image>
+                                 <effect>
+                                    <GaussianBlur radius="12.4" />
+                                 </effect>
+                              </ImageView>
+                              <JFXTextField fx:id="etfullname" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="33.0" prefHeight="38.0" prefWidth="346.0" promptText="Full Name" style="-jfx-focus-color: #fff; -fx-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etmothername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="97.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etphonenumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="97.0" prefHeight="38.0" prefWidth="255.0" promptText="Phone Number" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="et_place_of_birth" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="34.0" layoutY="203.0" prefHeight="38.0" prefWidth="177.0" promptText="Place of birth" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etkebele" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="239.0" layoutY="203.0" prefHeight="38.0" prefWidth="150.0" promptText="Kebele" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="298.0" layoutY="339.0" onAction="#createresidence" prefHeight="44.0" prefWidth="126.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Create">
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="27" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
+                              <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="677.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                                 <viewport>
+                                    <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
+                                 </viewport>
+                              </ImageView>
+                              <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="38.0" layoutY="335.0" onAction="#selectphoto" prefHeight="51.0" prefWidth="190.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Choose Photo...">
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-photo" iconSize="27" />
+                                 </graphic>
+                              </JFXButton>
+                              <DatePicker fx:id="dpdateofbirth" layoutX="152.0" layoutY="158.0" />
+                              <Label layoutX="38.0" layoutY="160.0" text="Date of birth" textFill="#f5f5f5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="etwereda" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="439.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="Wereda" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="ethousenumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="580.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etjob" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="151.0" prefHeight="38.0" prefWidth="255.0" promptText="Job" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etemergencynumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="463.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etemergencycontact" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="743.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXDialog fx:id="dgalert" />
+                              <JFXSnackbar fx:id="sb_create_residence_status" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="gmi-add-circle" iconSize="23" />
+                     </graphic>
+                  </Tab>
+                  <Tab text="Renew Id">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="View">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>
