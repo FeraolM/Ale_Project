@@ -4,6 +4,12 @@ import java.sql.*;
 
 import org.apache.http.client.methods.HttpPost;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
 
 public class AccountHelper {
 	
@@ -36,14 +42,22 @@ public class AccountHelper {
 		
 	}
 	
-	public static void addResidence(String fullname,String mothername,String phonenumber,String Dateofbirth,String placeofbirth,String kebele,String wereda,String housenumber,String job,String emergencycontact,String emergencynumber,String photourl) {
 	
+	
+	public static ResultSet addResidence(String fullname,String mothername,String phonenumber,String Dateofbirth,String placeofbirth,String kebele,String wereda,String housenumber,String job,String emergencycontact,String emergencynumber,String photourl) {
+	
+		
+	 
+	            
+		
 		String givendate = "CURDATE()";
 		String expiredate = "DATE_ADD(CURDATE(), INTERVAL 365*2 DAY)";
 		
 		//CURRENT_DATE
 		
 		int a;
+		
+		ResultSet resultSet = null;
 		
 		try {
 		
@@ -67,6 +81,9 @@ public class AccountHelper {
 				","+expiredate +				
 				",\"" +photourl +"\");");
 		
+		resultSet = statement.executeQuery("SELECT LAST_INSERT_ID();");
+	
+		
 		System.out.println("INSERT INTO resident (full_name, phone_number,mother_name,place_of_birth,date_of_birth,kebele,wereda,house_no,job,emergency_contact_name,emergency_contact_number,given_date,expire_date,photo_url) VALUES (\"" + fullname+
 				"\",\""+phonenumber +
 				"\",\""+mothername +
@@ -87,6 +104,7 @@ public class AccountHelper {
 			e.printStackTrace();
 			// TODO: handle exception
 		}
+		return resultSet;
 		
 	//full_name, phone_number,mother_name,place_of_birth,date_of_birth,kebele,wereda,house_no,job,emergency_contact_name,emergency_contact_number,given_date,photo_url
 		

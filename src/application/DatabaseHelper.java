@@ -71,7 +71,7 @@ public class DatabaseHelper {
 							
 							//System.out.println("INSERT INTO users (username, password, type, is_active) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ "\"0\");");
 										
-							a = statement.executeUpdate("INSERT INTO users (username, password, type, is_active,photo_location) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ ",\"1\",\"" + location +"\");");
+							a = statement.executeUpdate("INSERT INTO users (username, password, type, is_active,photo_location) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ ",\""+type+"\",\"" + location +"\");");
 							
 							System.out.println(String.valueOf(a));
 							

@@ -8,6 +8,8 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
+		String selectlastidString = "SELECT LAST_INSERT_ID();";
+		
 		String expiredate = "DATE_ADD(CURDATE(), INTERVAL 31 DAY)";
 		
 		String sjdkfhjds = "INSERT INTO resident (full_name, phone_number,mother_name,place_of_birth,date_of_birth,kebele,wereda,house_no,job,emergency_contact_name,emergency_contact_number,given_date,expire_date,photo_url) VALUES (\"" + "Tesfaye kassahun"+
@@ -25,7 +27,22 @@ public class Test {
 				","+expiredate +				
 				"\",\"" +"hjkgsdjfgsj" +"\");";
 		
-		System.out.println(sjdkfhjds);
+		String recString  = "INSERT INTO house (family_head, mother_name, house_type, kebele, house_number, family_members, reg_date) VALUES (" +
+				"\""+"fh"+"\",\""+
+				"mn"+"\",\""+
+				"hosetyoe"+"\",\""+
+				"kebele"+"\",\""+
+				"housenumber"+"\",\""+
+				"familymember"+"\","+
+				"currdate()"+
+				");"
+				
+				
+			;
+		
+		String gethouseString = "SELECT * FROM `house` WHERE house_number = "+ "15";
+		
+		System.out.println(gethouseString);
 	}
 
 	public static void testsdf () {

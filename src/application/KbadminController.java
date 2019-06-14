@@ -6,6 +6,7 @@ import java.awt.Insets;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 import com.gluonhq.impl.charm.a.b.b.h;
+import com.gluonhq.impl.charm.a.b.b.p;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXDialog;
@@ -31,6 +33,7 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,6 +42,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -212,7 +216,32 @@ public class KbadminController implements Initializable {
 	
 	
     @FXML
-    void createresidence(ActionEvent event) {
+    void createresidence(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader();
+    	
+    	fxmlLoader.setLocation(getClass().getResource("previewid.fxml"));
+    	
+    	try {
+			fxmlLoader.load();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	
+    	GenerateIdPreviewController generateIdPreviewController = fxmlLoader.getController();
+    	
+    	generateIdPreviewController.setid("34");
+    	
+       
+		Parent root1 = fxmlLoader.getRoot();
+		
+		    Stage stage = new Stage();
+		    
+		    stage.setScene(new Scene(root1));  
+		
+		    stage.show();
+   
     	
     	try {
     	
@@ -271,9 +300,15 @@ public class KbadminController implements Initializable {
     	
     	String photourl = General.makepathfordbforresidence(selectedFile);
 		  
-		AccountHelper.addResidence(fname, mothername, phonenumber, dateofbirth, placeofbirth, kebele, wereda, housenumber, job, emergencycontact, emergencynumber, photourl);  
+	   ResultSet lsressSet =AccountHelper.addResidence(fname, mothername, phonenumber, dateofbirth, placeofbirth, kebele, wereda, housenumber, job, emergencycontact, emergencynumber, photourl);  
     	
-		AccountHelper.get_last_inserted_residence();
+	   while (lsressSet.next()) {
+		
+		   System.out.println(lsressSet.getString("LAST_INSERT_ID()"));
+		
+	}
+	   
+		//AccountHelper.get_last_inserted_residence();
     	
 		 General.savefileresidenceimage(selectedFile, usrphotopth, imgview,snackbar,sb_create_residence_status);
 		  
@@ -283,7 +318,7 @@ public class KbadminController implements Initializable {
 		  dialogLayout.getStyleClass().add("dglayout");
 		  
 		  
-		  JFXButton button = new JFXButton("Okay");
+		  JFXButton button = new JFXButton("Show Id Preview");
 		  
 		  JFXButton jfoenixButton = new JFXButton("JFoenix Button");
 		  JFXButton abutton = new JFXButton("Raised Button".toUpperCase());
@@ -307,7 +342,7 @@ public class KbadminController implements Initializable {
 			  
 		  });
 		  
-		  Text ghText = new Text("Welcome ghdfsghjklhgfj");
+		  Text ghText = new Text("Residence Added Succesfully");
 		  
 		  	ghText.setStyle("-fx-background-color: rgb(255,0,0);");
 		  	

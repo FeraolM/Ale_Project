@@ -43,12 +43,15 @@ public class Main extends Application {
 		 * Test.testsdf();
 		 */
 		
-		Connection amsdsfConnection  = DatabaseHelper.getConnection();
+		
 		
 	try {
 		
+			
+		Connection amsdsfConnection = DatabaseHelper.getConnection();
+			 
 		Statement aStatement = amsdsfConnection.createStatement();
-		
+			 
 		ResultSet aResultSet = DatabaseHelper.getAllAdminUsers();
 		
 		while (aResultSet.next()) {
@@ -63,6 +66,8 @@ public class Main extends Application {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	
+	
 	
 		launch(args);
 	

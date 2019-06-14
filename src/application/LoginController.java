@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 
 public class LoginController implements Initializable{
 	
-		int n = 4;
 		
 		public final int SYSTEM_ADMINISTRATOR = 0;
 		
@@ -95,13 +94,14 @@ public class LoginController implements Initializable{
 			  				
 			  				else if (as.getBoolean("is_active") & as.getInt("type") == KB_ADMINISTRATOR) {
 			  					
+			  					
 			  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Kbadmin.fxml"));
 					  	    	
-					  	    	Parent root1;
+					  	    	
 					  			try {
 					  				((Node)event.getSource()).getScene().getWindow().hide();
 					  				
-					  				root1 = (Parent) fxmlLoader.load();
+					  			Parent	root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	stage.show();
@@ -112,7 +112,39 @@ public class LoginController implements Initializable{
 					  			}
 								
 							}
-
+			  				
+			  				else if (as.getBoolean("is_active") & as.getInt("type") == RECORD_OFFICER) {
+			  					
+			  					System.out.println(as.getInt("type"));
+			  					
+			  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Kbrecordofficer.fxml"));
+					  	    	
+					  	    	
+					  			try {
+					  				
+					  				((Node)event.getSource()).getScene().getWindow().hide();
+					  				
+					  				Parent root1 = (Parent) fxmlLoader.load();
+					  				
+					  				Stage stage = new Stage();
+					  				
+					  		    	stage.setScene(new Scene(root1));  
+					  		    	
+					  		    	stage.show();
+					  		    	 
+					  			} catch (IOException e) {
+					  				// TODO Auto-generated catch block
+					  				e.printStackTrace();
+					  			}
+								
+							}
+			  				
+			  				else {
+								System.err.println("Error loading xml files");
+								
+								System.exit(0);
+							}
+			  				
 			  	    			  			
 					}
 			  		
@@ -122,7 +154,7 @@ public class LoginController implements Initializable{
 						System.out.println("Login error \n" + Lusername + Lpassword);
 					}
 			  
-		  }
+		  		}
 		  }
 		  
 		  
