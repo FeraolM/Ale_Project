@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXSnackbar?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+
+<StackPane fx:id="stkpane" prefHeight="572.0" prefWidth="940.0" stylesheets="@basic.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KbrecordofficerController">
+   <children>
+      <AnchorPane prefHeight="279.0" prefWidth="552.0" stylesheets="@basic.css">
+         <children>
+            <JFXTabPane prefHeight="572.0" prefWidth="940.0">
+               <tabs>
+                  <Tab text="View">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="940.0" style="-fx-background-color: #171717;">
+                           <children>
+                              <StackedFontIcon />
+                              <ImageView fitHeight="597.0" fitWidth="968.0" layoutX="-4.0" layoutY="-1.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../res/bg/Abstract_blue_black_dark_circles_rings_cyan_neon_art_1920x1200.jpg" />
+                                 </image>
+                                 <effect>
+                                    <GaussianBlur radius="14.8" />
+                                 </effect>
+                              </ImageView>
+                              <JFXTextField fx:id="tf_house_number_field" focusColor="WHITE" labelFloat="true" layoutX="404.0" layoutY="46.0" promptText="Enter House Number" style="-fx-text-fill: #fff;" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label layoutX="120.0" layoutY="263.0" text="Family Head" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="112.0" layoutY="309.0" text="Mother Name" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="122.0" layoutY="364.0" text="House Type" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="145.0" layoutY="395.0" text="Kebele" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="106.0" layoutY="435.0" text="House Number" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="687.0" layoutY="201.0" text="Family Members" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextArea fx:id="ta_family_members" layoutX="600.0" layoutY="253.0" prefHeight="214.0" prefWidth="326.0" style="-fx-text-fill: #fff;">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font></JFXTextArea>
+                              <JFXTextField fx:id="tf_family_head" layoutX="267.0" layoutY="253.0" prefHeight="26.0" prefWidth="293.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" unFocusColor="#b7b7b7" />
+                              <JFXTextField fx:id="tf_mother_name" layoutX="257.0" layoutY="309.0" prefHeight="26.0" prefWidth="293.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" />
+                              <JFXTextField fx:id="Tf_kebele" layoutX="232.0" layoutY="395.0" prefHeight="26.0" prefWidth="293.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" />
+                              <JFXTextField fx:id="Tf_house_number" layoutX="252.0" layoutY="435.0" prefHeight="26.0" prefWidth="303.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" />
+                              <JFXComboBox fx:id="cb_house_type" blendMode="ADD" focusColor="WHITE" layoutX="310.0" layoutY="350.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="104.0" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE" />
+                              <JFXButton fx:id="btn_search" layoutX="426.0" layoutY="107.0" onAction="#searchhouse" prefHeight="38.0" prefWidth="116.0" stylesheets="@../../bin/application/darktheme.css" text="Search" />
+                              <ComboBox fx:id="fxcombo" layoutX="426.0" layoutY="360.0" prefWidth="150.0" style="-fx-prompt-text-fill: #fff;" styleClass="combo-box" stylesheets="@application.css" />
+                              
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  
+                  </Tab>
+                  <Tab style="-fx-background-color: transparent;" text="Register House">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #0125;">
+                           <children>
+                              <ImageView fitHeight="575.0" fitWidth="1078.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 100;">
+                                 <image>
+                                    <Image url="@../../res/bg/starry-night-over-the-matterhorn-wallpaper-for-1920x1080-63-426.jpg" />
+                                 </image>
+                                 <effect>
+                                    <GaussianBlur radius="12.4" />
+                                 </effect>
+                              </ImageView>
+                              <JFXTextField fx:id="etfullname" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="36.0" prefHeight="38.0" prefWidth="346.0" promptText="Family Head" style="-jfx-focus-color: #fff; -fx-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="etmothername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="475.0" layoutY="38.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXButton fx:id="crtbtn" alignment="CENTER" buttonType="RAISED" layoutX="369.0" layoutY="442.0" onAction="#RegisterHouse" prefHeight="44.0" prefWidth="126.0" ripplerFill="WHITE" style="-fx-background-color: transparent; -fx-text-fill: #fff;" stylesheets="@application.css" text="Create">
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-plus-square" iconSize="27" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXSnackbar fx:id="snackbar" blendMode="SCREEN" layoutX="400.0" layoutY="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="494.4" AnchorPane.topAnchor="50.0" />
+                              <ImageView fx:id="imgview" fitHeight="250.0" fitWidth="250.0" layoutX="677.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                                 <viewport>
+                                    <Rectangle2D height="250.0" minX="10.0" minY="10.0" width="250.0" />
+                                 </viewport>
+                              </ImageView>
+                              <Label layoutX="302.0" layoutY="125.0" text="House Type" textFill="#f5f5f5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="etkebele" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="302.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="Kebele" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="ethousenumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXDialog fx:id="dgalert" />
+                              <JFXSnackbar fx:id="sb_create_residence_status" />
+                              <JFXComboBox fx:id="House_type" focusColor="#f2f2f2" layoutX="436.0" layoutY="121.0" onAction="#combochanged" promptText="House Type" style="-fx-prompt-text-fill: #fff;" unFocusColor="WHITE" />
+                              <JFXTextArea fx:id="textarea1" focusColor="WHITE" labelFloat="true" layoutX="204.0" layoutY="237.0" promptText="Enter family members" style="-fx-text-fill: #fff;" unFocusColor="WHITE" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="gmi-add-circle" iconSize="23" />
+                     </graphic>
+                  </Tab>
+                  <Tab text="Mirrage Certificate">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Birth Certificate">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Divorce Certificate">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab text="Death Certificate">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
