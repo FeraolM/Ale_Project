@@ -80,6 +80,9 @@ public class KbadminController implements Initializable {
 	
 	@FXML
 	private AnchorPane anch;
+	
+    @FXML
+    private JFXTextField etgender;
 
     @FXML
     private JFXTextField etfullname;
@@ -259,6 +262,8 @@ public class KbadminController implements Initializable {
     	
     	String housenumber = ethousenumber.getCharacters().toString();
     	
+    	String gender = etgender.getCharacters().toString();
+    	
     	String phonenumber = etphonenumber.getCharacters().toString();
     	
     	String job = etjob.getCharacters().toString();
@@ -267,7 +272,7 @@ public class KbadminController implements Initializable {
     	
     	String emergencynumber = etemergencynumber.getCharacters().toString();
     	
-    	String tobetseted[] = {fname,mothername,dateofbirth,placeofbirth,kebele,wereda,housenumber,phonenumber,job,emergencycontact,emergencynumber};
+    	String tobetseted[] = {fname,mothername,dateofbirth,placeofbirth,kebele,wereda,housenumber,phonenumber,job,emergencycontact,emergencynumber,gender};
     	
     	//Test.check(tobetseted);
     	
@@ -282,6 +287,7 @@ public class KbadminController implements Initializable {
     			+job+ " \n"
     			+emergencycontact+ " \n"
     			+emergencynumber+ " \n"
+    			+gender+ " \n"
     			+ "urllllll"+ " \n");
     	
     	
@@ -300,7 +306,7 @@ public class KbadminController implements Initializable {
     	
     	String photourl = General.makepathfordbforresidence(selectedFile);
 		  
-	   ResultSet lsressSet =AccountHelper.addResidence(fname, mothername, phonenumber, dateofbirth, placeofbirth, kebele, wereda, housenumber, job, emergencycontact, emergencynumber, photourl);  
+	   ResultSet lsressSet =AccountHelper.addResidence(fname, mothername, phonenumber, dateofbirth, placeofbirth, kebele, wereda, housenumber, job, emergencycontact, emergencynumber,gender,photourl);  
     	
 	   while (lsressSet.next()) {
 		

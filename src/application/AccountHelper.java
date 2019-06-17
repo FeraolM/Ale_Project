@@ -44,7 +44,7 @@ public class AccountHelper {
 	
 	
 	
-	public static ResultSet addResidence(String fullname,String mothername,String phonenumber,String Dateofbirth,String placeofbirth,String kebele,String wereda,String housenumber,String job,String emergencycontact,String emergencynumber,String photourl) {
+	public static ResultSet addResidence(String fullname,String mothername,String phonenumber,String Dateofbirth,String placeofbirth,String kebele,String wereda,String housenumber,String job,String emergencycontact,String emergencynumber,String gender,String photourl) {
 	
 		
 	 
@@ -66,7 +66,7 @@ public class AccountHelper {
 		
 		//System.out.println("INSERT INTO users (username, password, type, is_active) VALUES (\"" + username+ "\",\""+password +"\" ,\""+type + "\" "+ "\"0\");");
 					
-		a = statement.executeUpdate("INSERT INTO resident (full_name, phone_number,mother_name,place_of_birth,date_of_birth,kebele,wereda,house_no,job,emergency_contact_name,emergency_contact_number,given_date,expire_date,photo_url) VALUES (\"" + fullname+
+		a = statement.executeUpdate("INSERT INTO resident (full_name, phone_number,mother_name,place_of_birth,date_of_birth,kebele,wereda,house_no,job,emergency_contact_name,emergency_contact_number,gender,given_date,expire_date,photo_url) VALUES (\"" + fullname+
 				"\",\""+phonenumber +
 				"\",\""+mothername +
 				"\",\""+placeofbirth +
@@ -77,6 +77,7 @@ public class AccountHelper {
 				"\",\""+job +
 				"\",\""+emergencycontact +
 				"\",\""+emergencynumber +
+				"\",\""+gender +
 				"\","+givendate +
 				","+expiredate +				
 				",\"" +photourl +"\");");
@@ -95,6 +96,7 @@ public class AccountHelper {
 				"\",\""+job +
 				"\",\""+emergencycontact +
 				"\",\""+emergencynumber +
+				"\",\""+gender +
 				"\","+givendate +
 				"\","+expiredate +				
 				"\",\"" +photourl +"\");");
