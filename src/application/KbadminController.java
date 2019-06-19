@@ -27,14 +27,20 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.base.ValidatorBase;
 import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -138,8 +144,12 @@ public class KbadminController implements Initializable {
     
     @FXML
     private JFXDialog dgalert;
+    
+    @FXML
+    private JFXTextField etusername;
 
-	
+    @FXML
+    private JFXPasswordField etpassword;	
 	
     @FXML
     private ListView<String> lv1;
@@ -152,6 +162,10 @@ public class KbadminController implements Initializable {
 	 static String accountimagesdirectory = "\\account_images";
     
     ObservableList<String> listview;
+
+    ObservableList<TextInputValidator> inputTextFields;
+    
+	private Object[] JFXTextField;
     
 	
 	
@@ -178,9 +192,38 @@ public class KbadminController implements Initializable {
 		//File sFile = new File(currentDirectory+"\\res\\profile.png");
 		
 
+ 	//JFXTextField[] numinputfields = {etemergencynumber,etkebele,etphonenumber};
+ 	
+ 	JFXTextField[] textFields = {etemergencycontact,etfullname,etgender,etjob,etmothername,etwereda,et_place_of_birth};
+
+    //	General.is_inputs_valid(numinputfields,crtbtn);
+    	
+    //	General.is_textinputs_valid(textFields, crtbtn);
+int i;		
+ 	
+ 	for (i = 0; i < textFields.length-1; i++) {
+			
+		 inputTextFields = FXCollections.observableArrayList();
+		 
+		 inputTextFields.add(new TextInputValidator(textFields[i]));
+		
+ 	}
+		
 		addlist();
 	}
 	
+	   @FXML
+	    void updateaccount(ActionEvent event) {
+		   
+		   
+		   String username = etusername.getCharacters().toString();
+		   
+		   String password = etpassword.getCharacters().toString();
+		   
+		   System.out.println(username+" \n" + password);
+		   
+
+	    }
 	
     @FXML
     void selectphoto(ActionEvent event) {
@@ -220,6 +263,9 @@ public class KbadminController implements Initializable {
 	
     @FXML
     void createresidence(ActionEvent event) throws IOException {
+    	
+   
+    	
     	
     	FXMLLoader fxmlLoader = new FXMLLoader();
     	
@@ -296,13 +342,13 @@ public class KbadminController implements Initializable {
     		System.out.println("emoty");
 			
 		}
-    	
-    	
-    	
+    	   		
     	
     	System.out.println("clicked create button");
     	
     	JFXDialogLayout dialogLayout = new JFXDialogLayout();
+    	
+    	// General.showDialogue(stkpane, dialogLayout);
     	
     	String photourl = General.makepathfordbforresidence(selectedFile);
 		  
@@ -318,61 +364,8 @@ public class KbadminController implements Initializable {
     	
 		 General.savefileresidenceimage(selectedFile, usrphotopth, imgview,snackbar,sb_create_residence_status);
 		  
-		  
-		 
-		  
-		  dialogLayout.getStyleClass().add("dglayout");
-		  
-		  
-		  JFXButton button = new JFXButton("Show Id Preview");
-		  
-		  JFXButton jfoenixButton = new JFXButton("JFoenix Button");
-		  JFXButton abutton = new JFXButton("Raised Button".toUpperCase());
-		  
-	 abutton.setStyle("-fx-background-color: rgb(255,0,0);"
-	 		+ " -fx-font-size: 14px;"
-	 		+ "-jfx-button-type: RAISED;"
-	 		+ "-fx-text-fill: WHITE;");
-		  
-		  button.getStyleClass().add("button-raised");
-		
-		
-		  
-		  JFXDialog dialog = new JFXDialog(stkpane,dialogLayout,JFXDialog.DialogTransition.BOTTOM);
-		  
-		  button.addEventFilter(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseevent)-> {
-			  
-			  
-			  dialog.close();
-			  
-			  
-		  });
-		  
-		  Text ghText = new Text("Residence Added Succesfully");
-		  
-		  	ghText.setStyle("-fx-background-color: rgb(255,0,0);");
-		  	
-		  dialogLayout.setBody(ghText);
-		  
-		  dialogLayout.setActions(button,abutton);
-		  
-		 button.setStyle("  .button-raised{\r\n" + 
-		 		"		      -fx-padding: 0.7em 0.57em;\r\n" + 
-		 		"		      -fx-font-size: 14px;\r\n" + 
-		 		"		      -jfx-button-type: RAISED;\r\n" + 
-		 		"		      -fx-background-color: rgb(77,102,204);\r\n" + 
-		 		"		      -fx-pref-width: 70;\r\n" + 
-		 		"		      -fx-text-fill: WHITE;\r\n" + 
-		 		"		  }"
-		 		+ ""
-		 		+ ".button-raised:hover{\r\n" + 
-		 		"    -fx-background-color: #fff;\r\n" + 
-		 		"    -fx-border-color: derive(-fx-color-1, -20%);\r\n" + 
-		 		"    -fx-text-fill: white;\r\n" + 
-		 		"}");
-		  
-		  dialog.show();
-	
+		 		  
+			/**/
     	
     	
     	} catch (Exception e) {

@@ -28,8 +28,7 @@ public class AdminUsers {
 	//	System.out.println(String.valueOf(Boolean.valueOf(inttoboolean(selectedvalue))) + selectedvalue);
 	
 		update.setSelected(inttoboolean(selectedvalue));
-		
-		
+				
 		update.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
 			@Override

@@ -9,13 +9,28 @@ import java.nio.file.Paths;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.stream.StreamSupport;
 import com.jfoenix.controls.JFXSnackbarLayout;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import com.sun.media.sound.EmergencySoundbank;
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.sun.xml.internal.ws.developer.MemberSubmissionAddressing.Validation;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 public class General {
 	
@@ -389,6 +404,329 @@ public class General {
 		    	  //  return (strvalue == null) || (strvalue.trim().length() == 0 || strvalue.isEmpty());
 		    	
 		    	return true;
+			}
+		    
+		    
+static int ifield;	
+
+static int ffield;
+
+
+public static boolean is_inputs_valid(JFXTextField[] inputfieFields, JFXButton button) {
+
+	    button.setVisible(false);
+	    
+	    NumberValidator numberValidator = new NumberValidator();
+		
+		RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+		
+		
+		
+	    for (ifield = 0; ifield < inputfieFields.length-1; ifield++) {
+	    	
+
+			inputfieFields[ifield].getValidators().add(numberValidator);
+			
+			inputfieFields[ifield].getValidators().add(requiredFieldValidator);
+		
+			inputfieFields[ifield].validate();
+			
+
+			if (inputfieFields[ifield].validate()) {
+				
+				inputfieFields[ifield].setStyle("-fx-text-fill:white;");	
+				
+				System.out.println("correct value added");
+				
+				button.setVisible(true);
+				
+				
+			}
+			
+			else {
+				
+				inputfieFields[ifield].setStyle("-fx-text-fill:red");
+				
+				System.out.println("incorrect value added");
+				
+				button.setVisible(false);
+				
+				requiredFieldValidator.setMessage("Required");
+				
+			}
+			
+			inputfieFields[ifield].textProperty().addListener(new ChangeListener<String>() {
+
+				@Override
+				public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+					// TODO Auto-generated method stub
+					
+					
+
+					if (inputfieFields[ifield].validate()) {
+						
+						inputfieFields[ifield].setStyle("-fx-text-fill:white;");
+					
+						
+						System.out.println("correct value added");
+						
+						button.setVisible(true);
+						
+						
+					}
+					
+					else {
+						
+						inputfieFields[ifield].setStyle("-fx-text-fill:red");
+						
+						System.out.println("incorrect value added");
+						
+						button.setVisible(false);
+						
+						requiredFieldValidator.setMessage("Required");
+						
+					}
+			
+
+					
+				}
+				
+				
+			});
+			
+		}
+		
+		
+		
+	
+	
+		/*
+		 * inputfieFields[1].getValidators().add(numberValidator);
+		 * 
+		 * inputfieFields[1].getValidators().add(requiredFieldValidator);
+		 * 
+		 * inputfieFields[1].validate();
+		 * 
+		 * 
+		 * if (inputfieFields[1].validate()) {
+		 * 
+		 * inputfieFields[1].setStyle("-fx-text-fill:white;");
+		 * 
+		 * System.out.println("correct value added");
+		 * 
+		 * button.setVisible(true);
+		 * 
+		 * 
+		 * }
+		 * 
+		 * else {
+		 * 
+		 * inputfieFields[1].setStyle("-fx-text-fill:red");
+		 * 
+		 * 
+		 * button.setVisible(false);
+		 * 
+		 * requiredFieldValidator.setMessage("Required");
+		 * 
+		 * }
+		 * 
+		 * inputfieFields[1].textProperty().addListener(new ChangeListener<String>() {
+		 * 
+		 * @Override public void changed(ObservableValue<? extends String> observable,
+		 * String oldValue, String newValue) { // TODO Auto-generated method stub
+		 * 
+		 * 
+		 * 
+		 * if (inputfieFields[1].validate()) {
+		 * 
+		 * inputfieFields[1].setStyle("-fx-text-fill:white;");
+		 * 
+		 * 
+		 * System.out.println("correct value added");
+		 * 
+		 * button.setVisible(true);
+		 * 
+		 * requiredFieldValidator.setMessage("Required"); }
+		 * 
+		 * else {
+		 * 
+		 * inputfieFields[1].setStyle("-fx-text-fill:red");
+		 * 
+		 * System.out.println("incorrect value added");
+		 * 
+		 * button.setVisible(false);
+		 * 
+		 * }
+		 * 
+		 * 
+		 * 
+		 * }
+		 * 
+		 * 
+		 * });
+		 */
+	
+	
+	
+		
+	
+	
+	return false;
+	
+}
+		    
+
+public static boolean is_textinputs_valid(JFXTextField[] inputfieFields, JFXButton button) {
+
+    button.setVisible(false);
+	
+	RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+	
+	
+	
+    for (ffield = 0; ffield < inputfieFields.length; ffield++) {
+
+		inputfieFields[ffield].getValidators().add(requiredFieldValidator);
+		
+
+		if (inputfieFields[ffield].validate()) {
+				
+			System.out.println("correct value added ii");
+			
+			button.setVisible(true);
+			
+
+			
+		}
+		
+		else {
+		
+			
+			System.out.println("incorrect value added oo");
+			
+			button.setVisible(false);
+			
+			requiredFieldValidator.setMessage("Required");
+			
+		}
+		
+		inputfieFields[ffield].textProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				
+				
+
+				if (inputfieFields[ffield].validate()) {
+					
+					inputfieFields[ffield].setStyle("-fx-text-fill:white");
+				
+					System.out.println(String.valueOf(ffield)+" the value");
+					
+					System.out.println("correct value added " + inputfieFields[ifield].getStyle()+ inputfieFields[ffield].getId()
+					);
+					
+					button.setVisible(true);
+					
+					requiredFieldValidator.setMessage("");
+					
+					
+				}
+				
+				else {
+					
+					inputfieFields[ffield].setStyle("-fx-text-fill:red");
+					
+					System.out.println("incorrect value added");
+					
+					
+					
+					button.setVisible(false);
+					
+					requiredFieldValidator.setMessage("Required");
+					
+				}
+		
+
+				
+			}
+			
+			
+		});
+		
+	}
+	
+		
+
+
+return false;
+
+}
+	    
+	    
+		    
+		    
+/* Alert jfualogue */
+		    
+		    
+		    public static void showDialogue(StackPane stkpane,JFXDialogLayout dialogLayout) {
+		    	
+		    	
+		    	System.out.println("dialogue called");
+		    	
+
+		
+		   dialogLayout.getStyleClass().add("dglayout");
+		  
+		  
+		  JFXButton button = new JFXButton("Ok");
+		  
+		  JFXButton jfoenixButton = new JFXButton("JFoenix Button"); JFXButton abutton
+		  = new JFXButton("".toUpperCase());
+		  
+		  abutton.setStyle("-fx-background-color: rgb(255,0,0);" +
+		  " -fx-font-size: 14px;" + "-jfx-button-type: RAISED;" +
+		  "-fx-text-fill: WHITE;");
+		  
+		  button.getStyleClass().add("button-raised");
+		  
+		  
+		  
+		  JFXDialog dialog = new
+		  JFXDialog(stkpane,dialogLayout,JFXDialog.DialogTransition.BOTTOM);
+		  
+		  button.addEventFilter(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseevent)-> {
+		  
+		  
+		  dialog.close();
+		  
+		  
+		  });
+		  
+		  Text ghText = new Text("Residence Added Succesfully");
+		  
+		  ghText.setStyle("-fx-background-color: rgb(255,0,0);");
+		  
+		  dialogLayout.setBody(ghText);
+		  
+		  dialogLayout.setActions(button,abutton);
+		  
+		  button.setStyle("  .button-raised{\r\n" +
+		  "		      -fx-padding: 0.7em 0.57em;\r\n" +
+		  "		      -fx-font-size: 14px;\r\n" +
+		  "		      -jfx-button-type: RAISED;\r\n" +
+		  "		      -fx-background-color: rgb(77,102,204);\r\n" +
+		  "		      -fx-pref-width: 70;\r\n" +
+		  "		      -fx-text-fill: WHITE;\r\n" + "		  }" + "" +
+		  ".button-raised:hover{\r\n" + "    -fx-background-color: #fff;\r\n" +
+		  "    -fx-border-color: derive(-fx-color-1, -20%);\r\n" +
+		  "    -fx-text-fill: white;\r\n" + "}");
+		  
+		  dialog.show();
+		 
+				 
+				
 			}
 		    
 

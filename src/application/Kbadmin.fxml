@@ -3,12 +3,14 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
@@ -30,11 +32,14 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0">
                            <children>
                               <StackedFontIcon />
-                              <FontIcon />
+                              <FontIcon iconLiteral="fa-address-book" />
                               <ImageView fitHeight="540.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../res/bg/rock-mountain-cliff-black-and-white-wallpaper-for-1280x720-73-1177.jpg" />
                                  </image>
+                                 <effect>
+                                    <GaussianBlur radius="34.6" />
+                                 </effect>
                               </ImageView>
                               <JFXTextField layoutX="85.0" layoutY="14.0" prefHeight="26.0" prefWidth="110.0" />
                               <Label layoutX="56.0" layoutY="9.0" prefHeight="36.0" prefWidth="58.0" text="Id">
@@ -42,11 +47,99 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
+                              <Label layoutX="33.0" layoutY="70.0" text="Full Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="105.0" text="Mother Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="164.0" text="Date of birth">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="192.0" text="Place of birth">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="219.0" text="Phone Number">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="132.0" text="Gender">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="33.0" layoutY="253.0" text="Kebele">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="534.0" layoutY="239.0" text="wereda">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="24.0" layoutY="290.0" text="House Number">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="365.0" text="Job">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="522.0" layoutY="276.0" text="Emergency contact name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="534.0" layoutY="205.0" text="Emergency contact number">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="534.0" layoutY="118.0" text="Given Date">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="534.0" layoutY="164.0" text="Expire date">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="534.0" layoutY="70.0" text="Active">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField layoutX="129.0" layoutY="70.0" />
+                              <JFXTextField layoutX="129.0" layoutY="105.0" />
+                              <JFXTextField layoutX="131.0" layoutY="132.0" />
+                              <JFXTextField layoutX="129.0" layoutY="192.0" />
+                              <JFXTextField layoutX="129.0" layoutY="219.0" />
+                              <JFXTextField layoutX="89.0" layoutY="253.0" />
+                              <JFXTextField layoutX="148.0" layoutY="290.0" />
+                              <JFXTextField labelFloat="true" layoutX="59.0" layoutY="365.0" prefHeight="26.0" prefWidth="166.0" />
+                              <JFXTextField layoutX="623.0" layoutY="119.0" />
+                              <JFXTextField layoutX="621.0" layoutY="164.0" />
+                              <JFXTextField layoutX="752.0" layoutY="206.0" />
+                              <JFXTextField layoutX="600.0" layoutY="240.0" />
+                              <JFXTextField layoutX="723.0" layoutY="277.0" />
                            </children>
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <FontIcon />
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-id-card" iconSize="23" />
                      </graphic>
                   </Tab>
                   <Tab style="-fx-background-color: transparent;" text="Add">
@@ -128,13 +221,14 @@
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="etemergencycontact" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="743.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etemergencycontact" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="743.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact number" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
                               <JFXDialog fx:id="dgalert" />
                               <JFXSnackbar fx:id="sb_create_residence_status" />
+                              <ProgressIndicator layoutX="385.0" layoutY="218.0" prefHeight="51.0" prefWidth="64.0" progress="1.0" style="-fx-text-fill: #fff;" />
                               <JFXTextField fx:id="etgender" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="756.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="Gender" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
@@ -155,11 +249,34 @@
                            </children>
                         </AnchorPane>
                      </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-refresh" iconSize="24" />
+                     </graphic>
                   </Tab>
-                  <Tab text="View">
+                  <Tab text="Setting">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #292929;">
+                           <children>
+                              <Label alignment="TOP_CENTER" layoutX="295.0" layoutY="25.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="272.0" style="-fx-text-fill: #fff;" text="Settings" textFill="WHITE">
+                                 <font>
+                                    <Font size="44.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-gear" iconSize="41" layoutX="310.0" layoutY="72.0" />
+                              <AnchorPane layoutX="272.0" layoutY="131.0" prefHeight="273.0" prefWidth="318.0">
+                                 <children>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-user" iconSize="40" layoutX="46.0" layoutY="63.0" />
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-lock" iconSize="40" layoutX="47.0" layoutY="138.0" />
+                                    <JFXTextField fx:id="etusername" focusColor="#4c97ff" layoutX="97.0" layoutY="35.0" prefHeight="26.0" prefWidth="202.0" style="-fx-text-fill: #fff;" unFocusColor="#c5c5c5" />
+                                    <JFXPasswordField fx:id="etpassword" focusColor="#18beff" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="206.0" style="-fx-text-fill: #fff;" unFocusColor="#e2e2e2" />
+                                    <JFXButton layoutX="111.0" layoutY="176.0" onAction="#updateaccount" prefHeight="38.0" prefWidth="113.0" stylesheets="@application.css" text="Update" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
                      </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-gears" iconSize="23" />
+                     </graphic>
                   </Tab>
                </tabs>
             </JFXTabPane>
