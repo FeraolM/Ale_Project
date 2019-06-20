@@ -3,21 +3,31 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="493.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
       <JFXButton fx:id="loginbtn" buttonType="RAISED" layoutX="192.0" layoutY="268.0" onAction="#loginfn" prefHeight="39.0" prefWidth="106.0" stylesheets="@application.css" text="Login" textFill="WHITE" />
 
       <JFXTextField fx:id="Luname" blendMode="SCREEN" focusColor="#030303" labelFloat="true" layoutX="101.0" layoutY="141.0" prefHeight="38.0" prefWidth="289.0" promptText="Username" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE" />
-      <JFXPasswordField fx:id="Lpass" blendMode="SCREEN" labelFloat="true" layoutX="102.0" layoutY="205.0" prefHeight="38.0" prefWidth="289.0" promptText="Password" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE" />
  
       <ImageView fitHeight="103.0" fitWidth="106.0" layoutX="195.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../res/icon/login.png" />
-         </image></ImageView>
+         </image>
+         <effect>
+            <DropShadow height="2.0" offsetY="10.0" radius="28.0025" width="112.01" />
+         </effect></ImageView>
+      <FontIcon iconColor="#fdfdfd" iconLiteral="fa-user" iconSize="33" layoutX="57.0" layoutY="176.0">
+         <effect>
+            <DropShadow height="175.91" radius="64.2175" width="82.96" />
+         </effect></FontIcon>
+      <FontIcon iconColor="WHITE" iconLiteral="fa-key" iconSize="33" layoutX="52.0" layoutY="238.0" />
+      <JFXPasswordField fx:id="Lpass" layoutX="102.0" layoutY="205.0" prefHeight="38.0" prefWidth="290.0" promptText="Password" />
 
    </children>
 </AnchorPane>

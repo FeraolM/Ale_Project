@@ -19,6 +19,7 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import com.sun.glass.ui.Application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +43,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import sun.plugin2.message.StartAppletAckMessage;
 public class AdminController implements Initializable {
 	
 	 String username,password,toogleGroupValue;
@@ -120,7 +123,8 @@ public class AdminController implements Initializable {
   
  public static ObservableList<AdminUsers> table_data;
  
-    
+   
+ 
     @FXML
     void chooseimage(ActionEvent event) {
     	

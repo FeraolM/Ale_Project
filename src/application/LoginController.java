@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.glass.ui.Application;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -21,8 +22,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class LoginController implements Initializable{
+public class LoginController implements Initializable {
 	
 		
 		public final int SYSTEM_ADMINISTRATOR = 0;
@@ -39,12 +41,12 @@ public class LoginController implements Initializable{
 
 	    @FXML
 	    private JFXPasswordField Lpass;
-
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 	
-		
+
 		//FontAwesomeIconView fontAwesomeIconView = new FontAwesomeIconView(FontAwesomeIcon.ANGELLIST);  
 
 	//	MaterialDesignIconView materialDesignIconView = new MaterialDesignIconView(MaterialDesignIcon.THUMB_UP); materialDesignIconView.setSize("4em");
@@ -82,6 +84,7 @@ public class LoginController implements Initializable{
 					  				
 					  				root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
+					  				
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	stage.show();
 					  		    	 

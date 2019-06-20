@@ -405,3 +405,13 @@
 .choice-box .arrow {
     -fx-background-color: #4d4d4d;   
 }
+
+.pane {
+
+
+-fx-background-size: 1200 900;
+-fx-background-radius: 30;
+-fx-border-radius: 30;
+-fx-border-width:5;
+
+}

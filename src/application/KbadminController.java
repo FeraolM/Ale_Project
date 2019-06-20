@@ -23,6 +23,7 @@ import com.gluonhq.impl.charm.a.b.b.h;
 import com.gluonhq.impl.charm.a.b.b.p;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXHamburger;
@@ -36,9 +37,10 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.base.ValidatorBase;
-import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 
+import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
+
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -157,6 +159,9 @@ public class KbadminController implements Initializable {
     @FXML
     private JFXListView<Label> lv2;
     
+    @FXML
+    private JFXComboBox<String> cmgender;
+    
     static String currentDirectory = System.getProperty("user.dir");
 	 
 	 static String accountimagesdirectory = "\\account_images";
@@ -164,6 +169,8 @@ public class KbadminController implements Initializable {
     ObservableList<String> listview;
 
     ObservableList<TextInputValidator> inputTextFields;
+    
+    ObservableList<String> typelist ;
     
 	private Object[] JFXTextField;
     
@@ -187,6 +194,10 @@ public class KbadminController implements Initializable {
 	 static Image imggImagev;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		typelist = FXCollections.observableArrayList("Kebele","Private");
+		
+		//cmgender.setItems(typelist);
 		// TODO Auto-generated method stub
 		
 		//File sFile = new File(currentDirectory+"\\res\\profile.png");
@@ -472,7 +483,14 @@ int i;
 	static FileInputStream imag;
 	
 
+	    @FXML
+	    void logout(ActionEvent event) {
+	
+		  System.out.println("Logout");
+		  Platform.exit();
+	        System.exit(0);
 
+	    }
 	
 	
 }
