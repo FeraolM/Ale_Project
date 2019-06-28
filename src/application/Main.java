@@ -19,6 +19,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
+			primaryStage.initStyle(StageStyle.UTILITY);
+			primaryStage.setTitle("Login");
+			primaryStage.setResizable(false);
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
 			
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -28,7 +31,6 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-
 			
 	
 		} catch(Exception e) {
