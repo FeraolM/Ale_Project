@@ -19,7 +19,7 @@ public class RecordHelper {
 		try {
 			Statement statement = DatabaseHelper.getConnection().createStatement();
 			
-			String regquery  = "INSERT INTO house (amily_head, mother_name, house_type, kebele, house_number, family_members, reg_date) VALUES (" +
+			String regquery  = "INSERT INTO house (family_head, mother_name, house_type, kebele, house_number, family_members, reg_date) VALUES (" +
 					"\""+familyhead+"\",\""+
 					mothername+"\",\""+
 					housetype+"\",\""+

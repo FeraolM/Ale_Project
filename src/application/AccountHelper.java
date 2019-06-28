@@ -194,4 +194,22 @@ public class AccountHelper {
 	}
 	
 	
+	public static void toggleActive(String id,String value) {
+		
+		//UPDATE `users` SET is_active = 1 WHERE id = id
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+			statement.executeUpdate("UPDATE `users` SET is_active = \""+value+ "\" WHERE id ="+id+";");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 }

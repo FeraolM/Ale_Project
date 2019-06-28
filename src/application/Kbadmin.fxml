@@ -35,12 +35,12 @@
                            <children>
                               <StackedFontIcon />
                               <FontIcon iconLiteral="fa-address-book" />
-                              <ImageView fitHeight="540.0" fitWidth="950.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="707.0" fitWidth="1088.0" layoutX="-1.0" layoutY="-85.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../res/bg/rock-mountain-cliff-black-and-white-wallpaper-for-1280x720-73-1177.jpg" />
+                                    <Image url="@../../../../Desktop/photo_2019-06-28_17-31-12.jpg" />
                                  </image>
                                  <effect>
-                                    <GaussianBlur radius="34.6" />
+                                    <GaussianBlur radius="9.4" />
                                  </effect>
                               </ImageView>
                               <JFXTextField fx:id="srid" labelFloat="true" layoutX="85.0" layoutY="14.0" prefHeight="26.0" prefWidth="110.0" promptText="Enter id number" />
@@ -226,7 +226,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="etemergencynumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="463.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etemergencynumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="463.0" layoutY="203.0" prefHeight="38.0" prefWidth="263.0" promptText="Emergency contact Name" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -238,7 +238,7 @@
                               </JFXTextField>
                               <JFXDialog fx:id="dgalert" />
                               <JFXSnackbar fx:id="sb_create_residence_status" />
-                              <ProgressIndicator layoutX="385.0" layoutY="218.0" prefHeight="51.0" prefWidth="64.0" progress="1.0" style="-fx-text-fill: #fff;" />
+                              <ProgressIndicator disable="true" layoutX="385.0" layoutY="218.0" prefHeight="51.0" prefWidth="64.0" progress="1.0" style="-fx-text-fill: #fff;" />
                               <JFXTextField fx:id="etgender" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="756.0" layoutY="63.0" prefHeight="38.0" prefWidth="118.0" promptText="Gender" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />

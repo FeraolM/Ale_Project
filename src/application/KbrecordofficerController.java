@@ -135,7 +135,7 @@ public class KbrecordofficerController implements Initializable {
     
     String housetype = House_type.getValue();
     
-    String kebele = "gh";//etkebele.getCharacters().toString();
+    String kebele = etkebele.getCharacters().toString();
     
     String familymember = textarea1.getText();
     

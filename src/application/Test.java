@@ -46,7 +46,9 @@ public class Test {
 		
 		String uodatesdf = "UPDATE `users` SET `password`= \""+ password+"\""+" WHERE id ="+ AccountHelper.sessionid+";";
 		
-		System.out.println(uodatesdf);
+		String toggleString = "UPDATE `users` SET is_active = \"1\" WHERE id = id;";
+		
+		System.out.println(toggleString);
 		
 		String gethouseString = "SELECT * FROM `house` WHERE house_number = "+ "15";
 		

@@ -201,6 +201,15 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
+                  <Tab text="Population">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXListView fx:id="lv21" prefHeight="234.0" prefWidth="583.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
                </tabs>
             </JFXTabPane>
          </children>

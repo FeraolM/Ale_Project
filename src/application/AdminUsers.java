@@ -47,21 +47,25 @@ public class AdminUsers {
 						 
 							if (newValue) {
 								
-								update.setStyle("-fx-text-fill:#fff");
+							//	update.setStyle("-fx-text-fill:#fff");
 								
-								update.setText("Active");
+							//	update.setText("Active");
+								
+								AccountHelper.toggleActive(users.getId(), "1");
 								
 								
 								
 							}
 							 else {
 								
-								 update.setStyle("-fx-text-fill:red");
+								// update.setStyle("-fx-text-fill:red");
 									
-									update.setText("Not Active");
+								//	update.setText("Not Active");
+								 
+								 AccountHelper.toggleActive(users.getId(), "0");
 									
 							}
-						 System.out.println("changed value " +  String.valueOf(users.getId() + getUsername()));
+					//	 System.out.println("changed value " +  String.valueOf(users.getId() + getUsername()));
 						
 						/*
 						 * JFXDialog dialog = new JFXDialog(AdminController.stkpane,new
@@ -117,11 +121,16 @@ public class AdminUsers {
 	}
 
 	public String getType() {
+		
+		
 		return type;
 	}
 
 	public void setType(String type) {
+		
 		this.type = type;
+		
+		
 	}
 
 	public String getActive() {

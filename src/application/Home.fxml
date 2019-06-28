@@ -58,9 +58,9 @@
                           <columns>
                             <TableColumn fx:id="colid" prefWidth="75.0" text="ID" />
                             <TableColumn fx:id="colname" prefWidth="200.0" text="Name" />
-                              <TableColumn fx:id="coltype" prefWidth="75.0" text="Type" />
-                              <TableColumn fx:id="colactive" prefWidth="75.0" text="Active" />
-                              <TableColumn fx:id="colbutton" prefWidth="176.000244140625" text="Action" />
+                              <TableColumn fx:id="coltype" prefWidth="191.99996948242188" text="Type" />
+                              <TableColumn fx:id="colactive" prefWidth="116.0" text="Active" />
+                              <TableColumn fx:id="colbutton" prefWidth="143.9998779296875" text="Action" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>

@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXRadioButton;
@@ -315,13 +317,38 @@ public class AdminController implements Initializable {
 		
 		try {
 			
+			String typeString = "unknown";
+			
 			ResultSet aResultSet = DatabaseHelper.getAllAdminUsers();
 			
 			while (aResultSet.next()) {
 				
+				System.out.println("Usertype resultset "+aResultSet.getString("type"));
+				
+				if (aResultSet.getString("type").equals("0")) {
+					
+					typeString = "System Administrator";
+					
+				}
+				
+				else if (aResultSet.getString("type").equals("1")) {
+					
+					typeString = "Kebele Administrator";
+				}
+				
+				else if (aResultSet.getString("type").equals("2")) {
+					
+					typeString = "Record Officer";
+				}
+				
+				else {
+					
+					typeString = "Unknown Type";
+				}
+				
 				table_data.add(new AdminUsers(aResultSet.getString("id"),
-						aResultSet.getString("username"),
-						aResultSet.getString("type"),
+						aResultSet.getString("username"),					
+						typeString,
 						aResultSet.getString("is_active"),
 						new JFXToggleButton(),
 						aResultSet.getString("is_active")));
