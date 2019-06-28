@@ -28,7 +28,12 @@ public class AdminUsers {
 	//	System.out.println(String.valueOf(Boolean.valueOf(inttoboolean(selectedvalue))) + selectedvalue);
 	
 		update.setSelected(inttoboolean(selectedvalue));
-				
+		
+		update.setStyle("-fx-text-fill:#fff");
+
+		
+	
+		
 		update.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
 			@Override
@@ -39,11 +44,30 @@ public class AdminUsers {
 					 
 					 if (users.getUpdate() == update) {
 						
+						 
+							if (newValue) {
+								
+								update.setStyle("-fx-text-fill:#fff");
+								
+								update.setText("Active");
+								
+								
+								
+							}
+							 else {
+								
+								 update.setStyle("-fx-text-fill:red");
+									
+									update.setText("Not Active");
+									
+							}
 						 System.out.println("changed value " +  String.valueOf(users.getId() + getUsername()));
 						
-						 JFXDialog dialog = new JFXDialog(AdminController.stkpane,new Label("skdhgkj"),JFXDialog.DialogTransition.CENTER);
-						 dialog.setContent(new Label("Content"));
-						dialog.show(AdminController.stkpane);
+						/*
+						 * JFXDialog dialog = new JFXDialog(AdminController.stkpane,new
+						 * Label("skdhgkj"),JFXDialog.DialogTransition.CENTER); dialog.setContent(new
+						 * Label("Content")); dialog.show(AdminController.stkpane);
+						 */
 						
 						
 					}

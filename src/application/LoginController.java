@@ -72,9 +72,13 @@ public class LoginController implements Initializable {
 		  
 			  		if (Lusername.equals( as.getString("username")) & Lpassword.equals(as.getString("password"))) {
 			  			
-			  			
+			  		AccountHelper.sessionid =(as.getString("id"));
+			  		
+			  		System.out.println("user id number is "+as.getString("id"));
 	  			
 			  				if (as.getBoolean("is_active") & as.getInt("type") == SYSTEM_ADMINISTRATOR) { //System
+			  					
+			  					
 			  					
 			  					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
 					  	    	
@@ -106,6 +110,7 @@ public class LoginController implements Initializable {
 					  				
 					  			Parent	root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
+					  				
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	stage.show();
 					  		    	 

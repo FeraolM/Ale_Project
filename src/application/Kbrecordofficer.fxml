@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXSnackbar?>
@@ -85,11 +86,14 @@
                               <JFXTextField fx:id="Tf_house_number" layoutX="252.0" layoutY="435.0" prefHeight="26.0" prefWidth="303.0" style="-fx-text-fill: #fff;" stylesheets="@application.css" />
                               <JFXComboBox fx:id="cb_house_type" blendMode="ADD" focusColor="WHITE" layoutX="310.0" layoutY="350.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="104.0" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE" />
                               <JFXButton fx:id="btn_search" layoutX="426.0" layoutY="107.0" onAction="#searchhouse" prefHeight="38.0" prefWidth="116.0" stylesheets="@../../bin/application/darktheme.css" text="Search" />
-                              <ComboBox fx:id="fxcombo" layoutX="426.0" layoutY="360.0" prefWidth="150.0" style="-fx-prompt-text-fill: #fff;" styleClass="combo-box" stylesheets="@application.css" />
+                              <ComboBox fx:id="fxcombo" layoutX="426.0" layoutY="360.0" prefWidth="150.0" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" styleClass="combo-box" stylesheets="@application.css" />
                               
                            </children>
                         </AnchorPane>
                      </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-address-card" iconSize="23" />
+                     </graphic>
                   
                   </Tab>
                   <Tab style="-fx-background-color: transparent;" text="Register House">
@@ -104,12 +108,12 @@
                                     <GaussianBlur radius="12.4" />
                                  </effect>
                               </ImageView>
-                              <JFXTextField fx:id="etfullname" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="36.0" prefHeight="38.0" prefWidth="346.0" promptText="Family Head" style="-jfx-focus-color: #fff; -fx-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etfullname" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="78.0" layoutY="36.0" prefHeight="38.0" prefWidth="346.0" promptText="Family Head" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" styleClass="text" stylesheets="@application.css" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="etmothername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="475.0" layoutY="38.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-text-fill: #fff;" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etmothername" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="475.0" layoutY="38.0" prefHeight="24.0" prefWidth="403.0" promptText="Mother Name" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" stylesheets="@application.css" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -130,19 +134,19 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="etkebele" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="302.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="Kebele" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etkebele" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="302.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="Kebele" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="ethousenumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                              <JFXTextField fx:id="ethousenumber" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="488.0" layoutY="183.0" prefHeight="38.0" prefWidth="118.0" promptText="House NO" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
                               <JFXDialog fx:id="dgalert" />
                               <JFXSnackbar fx:id="sb_create_residence_status" />
-                              <JFXComboBox fx:id="House_type" focusColor="#f2f2f2" layoutX="436.0" layoutY="121.0" onAction="#combochanged" promptText="House Type" style="-fx-prompt-text-fill: #fff;" unFocusColor="WHITE" />
+                              <JFXComboBox fx:id="House_type" focusColor="#f2f2f2" labelFloat="true" layoutX="436.0" layoutY="121.0" onAction="#combochanged" promptText="House Type" style="-fx-prompt-text-fill: #fff; -jfx-focus-color: #ff;" unFocusColor="WHITE" />
                               <JFXTextArea fx:id="textarea1" focusColor="WHITE" labelFloat="true" layoutX="204.0" layoutY="237.0" promptText="Enter family members" style="-fx-text-fill: #fff;" unFocusColor="WHITE" />
                            </children>
                         </AnchorPane>
@@ -151,14 +155,33 @@
                         <FontIcon iconColor="WHITE" iconLiteral="gmi-add-circle" iconSize="23" />
                      </graphic>
                   </Tab>
-                  <Tab text="Mirrage Certificate">
+                  <Tab text="Mirage Certificate">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
                            <children>
-                              <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
-                           </children>
-                        </AnchorPane>
+                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="101.0" prefHeight="26.0" prefWidth="261.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="154.0" prefHeight="26.0" prefWidth="175.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="101.0" prefHeight="26.0" prefWidth="252.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="154.0" prefHeight="26.0" prefWidth="186.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <FontIcon iconColor="#f9aa33" iconLiteral="fa-female" iconSize="47" layoutX="643.0" layoutY="54.0" />
+                              <FontIcon iconColor="#f9aa33" iconLiteral="fa-male" iconSize="47" layoutX="197.0" layoutY="54.0" />
+                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="138.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="593.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <Label layoutX="593.0" layoutY="236.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
+                              <Label layoutX="138.0" layoutY="236.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
+                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="383.0" layoutY="314.0" prefHeight="26.0" prefWidth="175.0" promptText="Mirage Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="382.0" layoutY="396.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <Label layoutX="382.0" layoutY="371.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
+                              <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="455.0" prefHeight="41.0" prefWidth="128.0" style="-fx-border-radius: 15; -fx-background-color: #f9aa33; -fx-text-fill: #232f34;" text="Generate" textFill="#1f2a2e">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children></AnchorPane>
                      </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-heart" iconSize="23" />
+                     </graphic>
                   </Tab>
                   <Tab text="Birth Certificate">
                      <content>
@@ -172,7 +195,10 @@
                   </Tab>
                   <Tab text="Death Certificate">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXListView fx:id="lv2" prefHeight="234.0" prefWidth="583.0" />
+                           </children></AnchorPane>
                     </content>
                   </Tab>
                </tabs>

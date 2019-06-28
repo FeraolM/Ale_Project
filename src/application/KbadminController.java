@@ -9,8 +9,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -69,6 +71,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -162,6 +165,68 @@ public class KbadminController implements Initializable {
     @FXML
     private JFXComboBox<String> cmgender;
     
+    
+    
+    
+    
+    /*search user fields*/
+    
+    @FXML
+    private JFXTextField srgender;
+
+    @FXML
+    private JFXTextField srfullname;
+
+    @FXML
+    private JFXTextField srid;
+    
+    @FXML
+    private JFXTextField srmothername;
+
+    @FXML
+    private JFXTextField srphonenumber;
+
+    @FXML
+    private JFXTextField sr_place_of_birth;
+
+    @FXML
+    private JFXTextField srkebele;
+    
+    @FXML
+    private DatePicker srdateofbirth;
+
+    @FXML
+    private JFXTextField srgivendate;
+    
+    @FXML
+    private JFXTextField srexpirydate;
+    
+    @FXML
+    private JFXTextField srwereda;
+
+    @FXML
+    private JFXTextField srhousenumber;
+
+    @FXML
+    private JFXTextField srjob;
+
+    @FXML
+    private JFXTextField sremergencynumber;
+
+    @FXML
+    private JFXTextField sremergencycontact;
+     
+    @FXML
+    private ImageView imgvphoto;
+    
+    @FXML
+    private FontIcon search;
+    
+    @FXML
+    private FontIcon status;
+    
+    
+    
     static String currentDirectory = System.getProperty("user.dir");
 	 
 	 static String accountimagesdirectory = "\\account_images";
@@ -223,18 +288,20 @@ int i;
 		addlist();
 	}
 	
-	   @FXML
-	    void updateaccount(ActionEvent event) {
-		   
-		   
-		   String username = etusername.getCharacters().toString();
+    @FXML
+    void updateaccountpassword(ActionEvent event) {
+    
 		   
 		   String password = etpassword.getCharacters().toString();
 		   
-		   System.out.println(username+" \n" + password);
+		  
+		   AccountHelper.changePassword(password);
 		   
+		   System.out.println("Cliked Update button");
+    	
 
-	    }
+    }
+	  
 	
     @FXML
     void selectphoto(ActionEvent event) {
@@ -491,6 +558,130 @@ int i;
 	        System.exit(0);
 
 	    }
+	    
+	    @FXML
+	    void searchuser(ActionEvent event) {
+	    	
+	    	String hString = General.currentDirectory;
+	    	
+	    	String id = srid.getCharacters().toString();
+	    	
+	    	ResultSet sdResultSet = AccountHelper.searchuser(id);
+	    	
+	    		try {
+	    			
+					while (sdResultSet.next()) {
+						
+						
+					System.out.println(sdResultSet.getString("full_name"));
+					
+						srfullname.setText(sdResultSet.getString("full_name"));
+						
+						srmothername.setText(sdResultSet.getString("mother_name"));
+						
+						srphonenumber.setText(sdResultSet.getString("phone_number"));
+						
+						sr_place_of_birth.setText(sdResultSet.getString("place_of_birth"));
+						
+						srgender.setText(sdResultSet.getString("gender"));
+						
+						srwereda.setText(sdResultSet.getString("wereda"));
+						
+						srkebele.setText(sdResultSet.getString("kebele"));
+						
+						srhousenumber.setText(sdResultSet.getString("house_no"));
+						
+						srjob.setText(sdResultSet.getString("job"));
+						
+						srdateofbirth.setValue(LocalDate.parse((sdResultSet.getString("date_of_birth"))));
+						
+						srgivendate.setText(sdResultSet.getString("given_date"));
+						
+						srexpirydate.setText(sdResultSet.getString("expire_date"));
+						
+						sremergencycontact.setText(sdResultSet.getString("emergency_contact_name"));
+						
+						sremergencynumber.setText(sdResultSet.getString("emergency_contact_number"));
+						
+						String fdString = currentDirectory+sdResultSet.getString("photo_url");
+						
+						String saString = sdResultSet.getString("active");
+						
+						System.out.println(saString);
+						
+						if (saString.equals("1")) {
+							
+							status.setIconColor(Paint.valueOf("black"));
+							status.setIconLiteral("fa-check-square-o");
+							
+						}
+						
+						else {
+							
+							status.setIconColor(Paint.valueOf("red"));
+							
+							status.setIconSize(25);
+							
+						//	status.setStyle("-fx-text-fill:red;");
+							
+							status.setIconLiteral("fa-times-circle-o");
+						
+						}
+						
+						
+						
+						FileInputStream imag;
+						try {
+							
+							imag = new FileInputStream(fdString);
+							
+							Image image = new Image(imag,250,250,false,false);
+
+							imgvphoto.setImage(image);
+							
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}				
+						
+					
+						
+					
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    
+	    	
+	    	
+		/*
+		 * String fname = etfullname.getCharacters().toString();
+		 * 
+		 * String mothername = etmothername.getCharacters().toString();
+		 * 
+		 * String dateofbirth = dpdateofbirth.getValue().toString();
+		 * 
+		 * String placeofbirth = et_place_of_birth.getCharacters().toString();
+		 * 
+		 * String kebele = etkebele.getCharacters().toString();
+		 * 
+		 * String wereda = etwereda.getCharacters().toString();
+		 * 
+		 * String housenumber = ethousenumber.getCharacters().toString();
+		 * 
+		 * String gender = etgender.getCharacters().toString();
+		 * 
+		 * String phonenumber = etphonenumber.getCharacters().toString();
+		 * 
+		 * String job = etjob.getCharacters().toString();
+		 * 
+		 * String emergencycontact = etemergencycontact.getCharacters().toString();
+		 * 
+		 * String emergencynumber = etemergencynumber.getCharacters().toString();
+		 */
+			
+		}
 	
 	
 }

@@ -9,9 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import jdk.dynalink.beans.StaticClass;
 
 
 public class AccountHelper {
+	
+	public static String sessionid = "0";
 	
 	static ResultSet resultSet;
 	
@@ -148,4 +151,47 @@ public class AccountHelper {
 		
 	}
 
+	
+	/*search user */
+	
+	public static ResultSet searchuser(String id) {
+		
+		Statement statement;
+		
+		try {
+				
+			
+			statement = DatabaseHelper.getConnection().createStatement();
+			
+			resultSet = statement.executeQuery("SELECT * FROM `resident` WHERE id="+id);
+			
+			return resultSet;
+			
+			
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
+	return resultSet;
+	
+	
+}
+	
+	public static void changePassword(String password) {
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+			 statement.executeUpdate("UPDATE `users` SET `password`= \""+ password+"\""+" WHERE id ="+ AccountHelper.sessionid+";");
+		
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 }

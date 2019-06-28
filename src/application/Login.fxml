@@ -4,29 +4,53 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="493.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="465.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <JFXButton fx:id="loginbtn" buttonType="RAISED" layoutX="192.0" layoutY="268.0" onAction="#loginfn" prefHeight="39.0" prefWidth="106.0" stylesheets="@application.css" text="Login" textFill="WHITE" />
+      <JFXButton fx:id="loginbtn" buttonType="RAISED" layoutX="192.0" layoutY="268.0" onAction="#loginfn" prefHeight="39.0" prefWidth="106.0" stylesheets="@application.css" text="Login" textFill="WHITE">
+         <graphic>
+            <FontIcon iconColor="WHITE" iconLiteral="fa-sign-in" iconSize="23">
+               <effect>
+                  <DropShadow color="#bdbdbd" />
+               </effect></FontIcon>
+         </graphic></JFXButton>
 
       <JFXTextField fx:id="Luname" blendMode="SCREEN" focusColor="#030303" labelFloat="true" layoutX="101.0" layoutY="141.0" prefHeight="38.0" prefWidth="289.0" promptText="Username" styleClass="text-field" stylesheets="@application.css" unFocusColor="WHITE" />
  
-      <ImageView fitHeight="103.0" fitWidth="106.0" layoutX="195.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="103.0" fitWidth="106.0" layoutX="181.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../res/icon/login.png" />
          </image>
          <effect>
-            <DropShadow height="2.0" offsetY="10.0" radius="28.0025" width="112.01" />
+            <Glow level="1.0">
+               <input>
+                  <Lighting diffuseConstant="0.57" specularConstant="0.6" specularExponent="30.84" surfaceScale="1.59">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="196.4" elevation="135.84" />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
          </effect></ImageView>
       <FontIcon iconColor="#fdfdfd" iconLiteral="fa-user" iconSize="33" layoutX="57.0" layoutY="176.0">
          <effect>
-            <DropShadow height="175.91" radius="64.2175" width="82.96" />
+            <DropShadow color="WHITE" height="129.44" radius="52.599999999999994" width="82.96" />
          </effect></FontIcon>
-      <FontIcon iconColor="WHITE" iconLiteral="fa-key" iconSize="33" layoutX="52.0" layoutY="238.0" />
+      <FontIcon iconColor="WHITE" iconLiteral="fa-key" iconSize="33" layoutX="52.0" layoutY="238.0">
+         <effect>
+            <DropShadow color="WHITE" radius="17.15" width="49.6" />
+         </effect></FontIcon>
       <JFXPasswordField fx:id="Lpass" layoutX="102.0" layoutY="205.0" prefHeight="38.0" prefWidth="290.0" promptText="Password" />
 
    </children>

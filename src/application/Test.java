@@ -40,7 +40,22 @@ public class Test {
 				
 			;
 		
+		String password = "abiti";
+		
+		AccountHelper.sessionid = "2";
+		
+		String uodatesdf = "UPDATE `users` SET `password`= \""+ password+"\""+" WHERE id ="+ AccountHelper.sessionid+";";
+		
+		System.out.println(uodatesdf);
+		
 		String gethouseString = "SELECT * FROM `house` WHERE house_number = "+ "15";
+		
+		String reString = "0";
+		
+		if (reString.equals("1")) {
+			
+			System.out.println("trutuhghhj");
+		}
 		
 		System.out.println(gethouseString);
 	}
