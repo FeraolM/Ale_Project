@@ -22,7 +22,6 @@ import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 import com.sun.media.sound.EmergencySoundbank;
 import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.xml.internal.ws.developer.MemberSubmissionAddressing.Validation;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -91,57 +90,70 @@ public class General {
 				 String newphotofilename;
 				 
 				 File newphotofilewithpath = null;
+				 
 				try {
 					
 					newphotofilename = currentDirectory + accountimagesdirectory + "\\"+ General.hashfileasd(selectedfile) + photofileextension;
 					
 					newphotofilewithpath  = new File(newphotofilename);
 					 
+					if (newphotofilewithpath.exists()) {
+						
+						General.showSnackbar(snackbar, aSnackbarLayout, "Image Already Exists", General.snackbarError);
+						
+					}
+					
+					else {
+						
+						try {
+							
+							
+							System.out.println(usrphotopth.toString() + "\n" + newphotoFile.getAbsolutePath().toString() + General.hashfileasd(selectedfile));
+							
+							
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+										
+					 
+						try {
+																		
+							Files.copy(usrphotopth.toPath(),newphotofilewithpath.toPath());
+							
+							aSnackbarLayout = new JFXSnackbarLayout("sfgdgdg");
+							
+							aSnackbarLayout.setStyle("-fx-background-color: #fff;"
+													+ "-fx-background-radius: 15px;"
+													+ " -fx-border-radius: 20px;"
+													+ "-fx-pref-height : 10;"
+													+ "-fx-padding:0;");
+							
+							aSnackbarLayout.setToast("User created successfully");
+							
+							
+							
+							 snackbar.fireEvent(new SnackbarEvent(aSnackbarLayout ));	
+							
+							
+							
+							
+						} catch (IOException e) {
+							
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						 
+						
+					}
+					
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
 				
 							 
-					try {
-						
-						
-						System.out.println(usrphotopth.toString() + "\n" + newphotoFile.getAbsolutePath().toString() + General.hashfileasd(selectedfile));
-						
-						
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-									
-				 
-					try {
-																	
-						Files.copy(usrphotopth.toPath(),newphotofilewithpath.toPath());
-						
-						aSnackbarLayout = new JFXSnackbarLayout("sfgdgdg");
-						
-						aSnackbarLayout.setStyle("-fx-background-color: #fff;"
-												+ "-fx-background-radius: 15px;"
-												+ " -fx-border-radius: 20px;"
-												+ "-fx-pref-height : 10;"
-												+ "-fx-padding:0;");
-						
-						aSnackbarLayout.setToast("User created successfully");
-						
-						
-						
-						 snackbar.fireEvent(new SnackbarEvent(aSnackbarLayout ));	
-						
-						
-						
-						
-					} catch (IOException e) {
-						
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					 
+					
 				
 			
 		}

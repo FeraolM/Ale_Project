@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDialog?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
@@ -37,7 +36,7 @@
                               <FontIcon iconLiteral="fa-address-book" />
                               <ImageView fitHeight="707.0" fitWidth="1088.0" layoutX="-1.0" layoutY="-85.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../Desktop/photo_2019-06-28_17-31-12.jpg" />
+                                    <Image url="@../../res/bg/rock-mountain-cliff-black-and-white-wallpaper-for-1280x720-73-1177.jpg" />
                                  </image>
                                  <effect>
                                     <GaussianBlur radius="9.4" />
@@ -254,9 +253,44 @@
                   </Tab>
                   <Tab text="Renew Id">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
                            <children>
-                              <JFXListView fx:id="lv2" layoutX="205.0" layoutY="65.0" prefHeight="234.0" prefWidth="583.0" />
+                              <JFXTextField focusColor="#f9aa33" labelFloat="true" layoutX="193.0" layoutY="49.0" promptText="Id" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label layoutX="146.0" layoutY="228.0" style="-fx-text-fill: #fff;" text="Status" textFill="WHITE">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-check-square-o" iconSize="24" layoutX="258.0" layoutY="256.0" />
+                              <Label layoutX="146.0" layoutY="285.0" style="-fx-text-fill: #fff;" text="Given Date" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="273.0" layoutY="288.0" prefHeight="34.0" prefWidth="172.0" style="-fx-text-fill: #fff;" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="146.0" layoutY="338.0" style="-fx-text-fill: #fff;" text="Expiry Date" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="288.0" layoutY="338.0" prefHeight="34.0" prefWidth="172.0" style="-fx-text-fill: #fff;" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton buttonType="RAISED" layoutX="415.0" layoutY="425.0" prefHeight="38.0" prefWidth="109.0" stylesheets="@application.css" text="Renew">
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-refresh" iconSize="23" />
+                                 </graphic>
+                              </JFXButton>
                            </children>
                         </AnchorPane>
                      </content>

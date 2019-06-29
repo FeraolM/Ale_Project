@@ -59,7 +59,20 @@ public class Test {
 			System.out.println("trutuhghhj");
 		}
 		
-		System.out.println(gethouseString);
+		
+		
+		String akjsdhgfkjlgdjk = "INSERT INTO `mirage`(`bfname`, `bbirth_place`, `bdate_of_birth`, `gfname`, `gdate_of_birth`, `gbirthplace`, `mirage_date`) VALUES "
+				
+				+ "(\""+"Alula"+"\","
+				+ "\""+"Welo"+"\","
+				+ "\""+"Welo"+"\","
+				+ "\""+"Welo"+"\","
+				+ "\""+"Welo"+"\","
+				+ "\""+"Welo"+"\","
+				+ "\""+"Welo"+"\");";
+		
+		
+		System.out.println(akjsdhgfkjlgdjk);
 	}
 
 	public static void testsdf () {

@@ -2,11 +2,13 @@ package application;
 
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.gluonhq.impl.charm.a.b.b.l;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSnackbar;
@@ -90,6 +92,42 @@ public class KbrecordofficerController implements Initializable {
 
     @FXML
     private JFXSnackbar sb_create_residence_status;
+    
+    
+    
+    
+    @FXML
+    private JFXTextField etbfname;
+    
+    @FXML
+    private JFXTextField etbbirthplace;
+    
+    @FXML
+    private JFXDatePicker bdateofbirth;
+    
+    
+
+    @FXML
+    private JFXTextField etgfname;
+    
+    @FXML
+    private JFXTextField etgbirthplace;
+    
+    @FXML
+    private JFXDatePicker gdateofbirth;
+    
+    
+
+    @FXML
+    private JFXTextField etplaceofmirage;
+    
+    @FXML
+    private JFXDatePicker dateofmirage;
+    
+    
+    
+    
+    
 
 
     @FXML
@@ -188,6 +226,33 @@ public class KbrecordofficerController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+    }
+    
+    
+    
+    @FXML
+    void GenerateMirageCertificate(ActionEvent event) {
+    	
+    	String bfname = etbfname.getCharacters().toString();
+    	
+    	String bbirthplace = etbbirthplace.getCharacters().toString();
+    	
+    	LocalDate bdateofbirthh = bdateofbirth.getValue();
+    	
+    	String gfname = etgfname.getCharacters().toString();
+    	
+    	String gbirthplace = etgbirthplace.getCharacters().toString();
+    	
+    	LocalDate gdateofbirthh = gdateofbirth.getValue();
+    	
+    	LocalDate miragedate = dateofmirage.getValue();
+    	
+    	String mirageplace = etplaceofmirage.getCharacters().toString();
+    	
+    	RecordHelper recordHelper = new RecordHelper();
+    	
+    	recordHelper.generateMirageCertificate(bfname,bdateofbirthh, bbirthplace, gfname, gdateofbirthh, gbirthplace, miragedate, mirageplace);
 
     }
 

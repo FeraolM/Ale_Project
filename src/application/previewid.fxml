@@ -11,7 +11,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <JFXButton fx:id="btnprintid" buttonType="RAISED" layoutX="510.0" layoutY="361.0" text="Print Id" />
-            <ImageView fx:id="ivid" fitHeight="308.0" fitWidth="474.0" layoutX="63.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ivid" fitHeight="330.0" fitWidth="513.0" layoutX="37.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="lb1" layoutX="60.0" layoutY="365.0" text="Label" />
          </children>
       </AnchorPane>

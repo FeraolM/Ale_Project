@@ -235,6 +235,8 @@ public class KbadminController implements Initializable {
 
     ObservableList<TextInputValidator> inputTextFields;
     
+    ObservableList<TextInputValidator> numberinputTextFields;
+    
     ObservableList<String> typelist ;
     
 	private Object[] JFXTextField;
@@ -272,6 +274,8 @@ public class KbadminController implements Initializable {
  	
  	JFXTextField[] textFields = {etemergencycontact,etfullname,etgender,etjob,etmothername,etwereda,et_place_of_birth};
 
+ 	JFXTextField[] numberFields = {etemergencycontact,etkebele,etphonenumber};
+ 	
     //	General.is_inputs_valid(numinputfields,crtbtn);
     	
     //	General.is_textinputs_valid(textFields, crtbtn);
@@ -284,6 +288,14 @@ int i;
 		 inputTextFields.add(new TextInputValidator(textFields[i]));
 		
  	}
+ 	
+ 	for (int x = 0; x < numberFields.length-1; x++) {
+ 		
+ 		numberinputTextFields = FXCollections.observableArrayList();
+ 		
+ 		// numberinputTextFields.add(new TextInputValidator(numberFields[i]));
+		
+	}
 		
 		addlist();
 	}
@@ -341,9 +353,6 @@ int i;
 	
     @FXML
     void createresidence(ActionEvent event) throws IOException {
-    	
-   
-    	
     	
     	FXMLLoader fxmlLoader = new FXMLLoader();
     	

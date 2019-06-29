@@ -62,11 +62,20 @@ public class LoginController implements Initializable {
     	Lusername = Luname.getCharacters().toString();
     	Lpassword = Lpass.getCharacters().toString();
     	 	
+    	if (Lusername.equals("") | Lusername.isEmpty() | Lpassword.equals("") | Lpassword.isEmpty()) {
+			
+    		
+    		  System.out.println("Invalid Input");
+		} 
+    	
+    	else {
+			
         			
 		  try {
 		  
 		  ResultSet as = DatabaseHelper.Login(Lusername);
-		 
+	 
+		  
 		  while (as.next()) {
 			
 		  
@@ -88,6 +97,11 @@ public class LoginController implements Initializable {
 					  				
 					  				root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
+					  				
+					  				stage.setTitle("System Administrator");
+					  				
+					  				// stage.initStyle(StageStyle.TRANSPARENT);
+					  			
 					  				
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	stage.show();
@@ -111,6 +125,8 @@ public class LoginController implements Initializable {
 					  			Parent	root1 = (Parent) fxmlLoader.load();
 					  				Stage stage = new Stage();
 					  				
+					  				stage.setTitle("Kebele Administrator");
+					  				
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	stage.show();
 					  		    	 
@@ -132,9 +148,11 @@ public class LoginController implements Initializable {
 					  				
 					  				((Node)event.getSource()).getScene().getWindow().hide();
 					  				
-					  				Parent root1 = (Parent) fxmlLoader.load();
+					  				Parent root1 = (Parent) fxmlLoader.load();				  				
 					  				
 					  				Stage stage = new Stage();
+					  				
+					  				stage.setTitle("Record Officer");
 					  				
 					  		    	stage.setScene(new Scene(root1));  
 					  		    	
@@ -157,7 +175,13 @@ public class LoginController implements Initializable {
 					}
 			  		
 			  		else {
+
+			  			String toastMsg = "Incorrect Password";
+			  			int toastMsgTime = 2500; //3.5 seconds
+			  			int fadeInTime = 200; //0.5 seconds
+			  			int fadeOutTime= 200; //0.5 seconds
 			  			
+			  			Toast.makeText(Main.getStage(), toastMsg, toastMsgTime, fadeInTime, fadeOutTime);
 			  			
 						System.out.println("Login error \n" + Lusername + Lpassword);
 					}
@@ -171,7 +195,12 @@ public class LoginController implements Initializable {
 		  
 		  e.printStackTrace();
 		  
+		
+		  
 		  }
+		  
+		  
+    	}
 		 
 
     	

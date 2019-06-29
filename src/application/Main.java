@@ -15,9 +15,12 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	
+	static Stage sfsdf;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			sfsdf = primaryStage;
 			
 			primaryStage.initStyle(StageStyle.UTILITY);
 			primaryStage.setTitle("Login");
@@ -76,6 +79,15 @@ public class Main extends Application {
 	
 		launch(args);
 	
+		
+	}
+	
+	public static Stage getStage() {
+		
+		
+		
+		
+		return sfsdf;
 		
 	}
 }

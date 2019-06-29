@@ -195,6 +195,7 @@ public class AdminController implements Initializable {
 				  
 				  General.savefile(selectedFile, usrphotopth, imgview,snackbar,aSnackbarLayout);
 				  
+				  General.showSnackbar(snackbar, aSnackbarLayout, "User Created Succesfully", General.snackbarError);
 				  
 				  break;
 				  

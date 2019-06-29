@@ -21,9 +21,13 @@ public class TextInputValidator {
 		
 	  //  NumberValidator numberValidator = new NumberValidator();
 		
+	    NumberValidator numberValidator = new NumberValidator();
+	    
 		RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
 		
-		jfxTextField.getValidators().add(requiredFieldValidator);
+		//jfxTextField.getValidators().add(requiredFieldValidator);
+		
+		jfxTextField.getValidators().add(numberValidator);
 		
 	//	jfxTextField.validate();
 		

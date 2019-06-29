@@ -159,20 +159,20 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
                            <children>
-                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="101.0" prefHeight="26.0" prefWidth="261.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
-                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="154.0" prefHeight="26.0" prefWidth="175.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
-                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="101.0" prefHeight="26.0" prefWidth="252.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
-                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="154.0" prefHeight="26.0" prefWidth="186.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etbfname" focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="101.0" prefHeight="26.0" prefWidth="261.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etbbirthplace" focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="154.0" prefHeight="26.0" prefWidth="175.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etgfname" focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="101.0" prefHeight="26.0" prefWidth="252.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etgbirthplace" focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="154.0" prefHeight="26.0" prefWidth="186.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
                               <FontIcon iconColor="#f9aa33" iconLiteral="fa-female" iconSize="47" layoutX="643.0" layoutY="54.0" />
                               <FontIcon iconColor="#f9aa33" iconLiteral="fa-male" iconSize="47" layoutX="197.0" layoutY="54.0" />
-                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="138.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
-                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="593.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <JFXDatePicker fx:id="bdateofbirth" blendMode="ADD" defaultColor="#f9aa33" layoutX="138.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <JFXDatePicker fx:id="gdateofbirth" blendMode="ADD" defaultColor="#f9aa33" layoutX="593.0" layoutY="261.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
                               <Label layoutX="593.0" layoutY="236.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
                               <Label layoutX="138.0" layoutY="236.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
-                              <JFXTextField focusColor="#f79a8f" labelFloat="true" layoutX="383.0" layoutY="314.0" prefHeight="26.0" prefWidth="175.0" promptText="Mirage Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
-                              <JFXDatePicker blendMode="ADD" defaultColor="#f9aa33" layoutX="382.0" layoutY="396.0" overLay="true" promptText="Date of birth" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
-                              <Label layoutX="382.0" layoutY="371.0" style="-fx-text-fill: #fff;" text="Date of birth" textFill="#e8e2e2" />
-                              <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="455.0" prefHeight="41.0" prefWidth="128.0" style="-fx-border-radius: 15; -fx-background-color: #f9aa33; -fx-text-fill: #232f34;" text="Generate" textFill="#1f2a2e">
+                              <JFXTextField fx:id="etplaceofmirage" focusColor="#f79a8f" labelFloat="true" layoutX="383.0" layoutY="314.0" prefHeight="26.0" prefWidth="175.0" promptText="Mirage Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXDatePicker fx:id="dateofmirage" blendMode="ADD" defaultColor="#f9aa33" layoutX="382.0" layoutY="396.0" overLay="true" promptText="Date of mirage" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" />
+                              <Label layoutX="382.0" layoutY="371.0" style="-fx-text-fill: #fff;" text="Date of Mirage" textFill="#e8e2e2" />
+                              <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="455.0" onAction="#GenerateMirageCertificate" prefHeight="41.0" prefWidth="128.0" style="-fx-border-radius: 15; -fx-background-color: #f9aa33; -fx-text-fill: #232f34;" text="Generate" textFill="#1f2a2e">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -185,7 +185,7 @@
                   </Tab>
                   <Tab text="Birth Certificate">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #344955;" />
                      </content>
                   </Tab>
                   <Tab text="Divorce Certificate">
