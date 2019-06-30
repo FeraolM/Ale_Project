@@ -269,7 +269,7 @@ public class KbadminController implements Initializable {
 
     ObservableList<TextInputValidator> inputTextFields;
     
-    ObservableList<TextInputValidator> numberinputTextFields;
+    ObservableList<numberValidator> numberinputTextFields;
     
     ObservableList<String> typelist ;
     
@@ -310,9 +310,11 @@ public class KbadminController implements Initializable {
 
  	//JFXTextField[] numinputfields = {etemergencynumber,etkebele,etphonenumber};
  	
- 	JFXTextField[] textFields = {etemergencycontact,etfullname,etgender,etjob,etmothername,etwereda,et_place_of_birth};
+ 	JFXTextField[] textFields = {etemergencynumber,ethousenumber, etemergencycontact,etfullname,etgender,etjob,etmothername,etwereda,et_place_of_birth,etkebele,etphonenumber,etemergencynumber};
 
- 	JFXTextField[] numberFields = {etemergencycontact,etkebele,etphonenumber};
+ 	JFXTextField[] numberFields = {etemergencycontact,etkebele,etphonenumber,ethousenumber};
+ 	
+ 
  	
     //	General.is_inputs_valid(numinputfields,crtbtn);
     	
@@ -331,8 +333,11 @@ int i;
  		
  		numberinputTextFields = FXCollections.observableArrayList();
  		
- 		// numberinputTextFields.add(new TextInputValidator(numberFields[i]));
-		
+ 		numberinputTextFields = FXCollections.observableArrayList();
+ 		
+ 		numberinputTextFields.add(new numberValidator(numberFields[x]));
+ 		
+ 		
 	}
 		
 		addlist();
