@@ -167,12 +167,20 @@ public class KbrecordofficerController implements Initializable {
     
     
     
+/*Death certificate*/
     
     
     
+    @FXML
+    private JFXTextField dname;
     
+    @FXML
+    private JFXTextField placeofdeath;
+ 
+    @FXML
+    private JFXDatePicker dateofdeath;
     
-    
+      
     
     
 
@@ -425,5 +433,23 @@ public void loadMirageid(String id) {
 			
 		
 		}
+		
+
+	    @FXML
+	    void GenerateDeathCertificate(ActionEvent event) {
+
+	    	String sdfString = dname.getCharacters().toString();
+	    	
+	    	String dplace = placeofdeath.getCharacters().toString();
+	    	
+	    	LocalDate dLocalDate = dateofdeath.getValue();
+	    	
+
+			RecordHelper recordHelper = new RecordHelper();
+			
+	    	
+	    	recordHelper.generateDeathCertificate(sdfString, dLocalDate,dplace);
+	    	
+	    }
 
 }
