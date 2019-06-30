@@ -129,7 +129,7 @@ public class KbrecordofficerController implements Initializable {
     @FXML
     private JFXDatePicker dateofmirage;
     
-   /*hafkjgsdjfgsdj*/
+   /*Birth certificate*/
     
     
     
@@ -147,6 +147,31 @@ public class KbrecordofficerController implements Initializable {
     
     @FXML
     private JFXDatePicker cdateofbirth;
+    
+    
+   /*Divorce certificate*/
+    
+    
+    
+    @FXML
+    private JFXTextField bfname;
+    
+    @FXML
+    private JFXTextField gfname;
+    
+    @FXML
+    private JFXTextField placeofdivorce;
+ 
+    @FXML
+    private JFXDatePicker dateofdivorce;
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -375,6 +400,30 @@ public void loadMirageid(String id) {
 	}
 	
 	
-}	
+}
+
+
+		@FXML
+		void GenerateDivorceCertificate(ActionEvent event) {
+			
+			String sdf = bfname.getCharacters().toString();
+			
+			String gname = gfname.getCharacters().toString();
+			
+			String divorceplace = placeofdivorce.getCharacters().toString();
+			
+			LocalDate dateofdivorcesd = dateofdivorce.getValue();
+		
+			RecordHelper recordHelper = new RecordHelper();
+			
+			System.out.println(sdf+gname);
+	    	
+	    	recordHelper.generateDivorceCertificate(sdf, dateofdivorcesd, divorceplace, gname);
+	    	
+	    	
+
+			
+		
+		}
 
 }

@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDialog?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
@@ -159,7 +158,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
                            <children>
-                              <JFXTextField fx:id="etbfname" focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="101.0" prefHeight="26.0" prefWidth="261.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etbfname" focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="101.0" prefHeight="26.0" prefWidth="261.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff; -jfx-focus-color: #f79a8f;" unFocusColor="#c7c7c7" />
                               <JFXTextField fx:id="etbbirthplace" focusColor="#f79a8f" labelFloat="true" layoutX="138.0" layoutY="154.0" prefHeight="26.0" prefWidth="175.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
                               <JFXTextField fx:id="etgfname" focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="101.0" prefHeight="26.0" prefWidth="252.0" promptText="Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
                               <JFXTextField fx:id="etgbirthplace" focusColor="#f79a8f" labelFloat="true" layoutX="584.0" layoutY="154.0" prefHeight="26.0" prefWidth="186.0" promptText="Birth Place" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
@@ -187,10 +186,10 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #344955;">
                            <children>
-                              <JFXTextField fx:id="etchname" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="63.0" promptText="Child Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
-                              <JFXTextField fx:id="etweight" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="153.0" promptText="Weight" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
-                              <JFXTextField fx:id="etfaname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="63.0" promptText="Father Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
-                              <JFXTextField fx:id="etmname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="153.0" promptText="Mother Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXTextField fx:id="etchname" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="63.0" promptText="Child Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etweight" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="153.0" promptText="Weight" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etfaname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="63.0" promptText="Father Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="etmname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="153.0" promptText="Mother Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="#c7c7c7" />
                               <JFXDatePicker fx:id="cdateofbirth" defaultColor="#f9aa33" layoutX="336.0" layoutY="230.0" promptText="Date Of birth" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
                               <JFXButton layoutX="382.0" layoutY="352.0" onAction="#generatebirthcertificate" prefHeight="38.0" prefWidth="117.0" stylesheets="@application.css" text="Create" />
                            </children></AnchorPane>
@@ -198,24 +197,24 @@
                   </Tab>
                   <Tab text="Divorce Certificate">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
+                           <children>
+                              <JFXButton buttonType="RAISED" layoutX="386.0" layoutY="395.0" onAction="#GenerateDivorceCertificate" prefHeight="38.0" prefWidth="116.0" stylesheets="@application.css" text="Create" />
+                              <JFXTextField fx:id="bfname" focusColor="#f79a8f" labelFloat="true" layoutX="119.0" layoutY="89.0" promptText="Full Name" styleClass="edittextmaterial" stylesheets="@application.css" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="gfname" focusColor="#f79a8f" labelFloat="true" layoutX="592.0" layoutY="89.0" promptText="Full Name" styleClass="edittextmaterial" stylesheets="@application.css" unFocusColor="#c7c7c7" />
+                              <JFXTextField fx:id="placeofdivorce" focusColor="#f79a8f" labelFloat="true" layoutX="354.0" layoutY="237.0" promptText="Place" styleClass="edittextmaterial" stylesheets="@application.css" unFocusColor="#c7c7c7" />
+                              <JFXDatePicker fx:id="dateofdivorce" defaultColor="#f79a8f" layoutX="359.0" layoutY="309.0" promptText="Date" />
+                           </children></AnchorPane>
                     </content>
                   </Tab>
                   <Tab text="Death Certificate">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <JFXListView fx:id="lv2" prefHeight="234.0" prefWidth="583.0" />
-                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;" />
                     </content>
                   </Tab>
                   <Tab text="Population">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <JFXListView fx:id="lv21" prefHeight="234.0" prefWidth="583.0" />
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;" />
                      </content>
                   </Tab>
                </tabs>

@@ -152,6 +152,81 @@ public static ResultSet gethouse(String housenumber) {
 	
 	
 	
+public void generateDivorceCertificate(String bfname,LocalDate date,String place, String gfname ) {
+		
+		String lastid = null;
+		
+	String mquery =	"INSERT INTO `divorce`(`bfname`, `gfname`, `place`, `date`) VALUES "
+		
+				+ "(\""+bfname+"\","
+				+ "\""+gfname+"\","				
+				+ "\""+place+"\","			
+				+ "\""+date+"\");";
+	
+	try {
+		
+		
+		Statement statement= DatabaseHelper.getConnection().createStatement();
+		
+		statement.executeUpdate(mquery);
+			
+		ResultSet resultSet = statement.executeQuery("SELECT LAST_INSERT_ID();");
+		
+		
+		
+				while (resultSet.next()) {
+					
+					lastid = resultSet.getString("LAST_INSERT_ID()");
+					
+				}
+				
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	//resultSet = statement.executeQuery("SELECT LAST_INSERT_ID();");
+	
+	
+	
+	
+		System.out.println(mquery);
+		
+		FXMLLoader fxmlLoader = new FXMLLoader();
+    	
+    	fxmlLoader.setLocation(getClass().getResource("divorce.fxml"));
+    	
+    	try {
+			fxmlLoader.load();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	
+    	DivorcePreviewController generateIdPreviewController = fxmlLoader.getController();
+    	
+    	generateIdPreviewController.setid(lastid);
+    	
+       
+		Parent root1 = fxmlLoader.getRoot();
+		
+		    Stage stage = new Stage();
+		    
+		    stage.setScene(new Scene(root1));  
+		
+		    stage.show();
+		
+		String toastMsg = "Generated Successfully " + lastid ;
+			int toastMsgTime = 2500; //3.5 seconds
+			int fadeInTime = 200; //0.5 seconds
+			int fadeOutTime= 200; //0.5 seconds
+			
+			Toast.makeText(Main.getStage(), toastMsg, toastMsgTime, fadeInTime, fadeOutTime);
+		
+	}
+	
+	
+	
 	
 
 

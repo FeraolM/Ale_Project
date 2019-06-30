@@ -415,3 +415,16 @@
 -fx-border-width:5;
 
 }
+
+.edittextmaterial {
+
+
+-fx-text-fill :#fff;
+
+-fx-prompt-text-fill : #fff;
+
+-jfx-focus-color: #f79a8f;
+
+
+
+}
