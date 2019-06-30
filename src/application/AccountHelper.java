@@ -212,4 +212,26 @@ public class AccountHelper {
 	}
 	
 	
+	public static ResultSet getUser(String id) {
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+		ResultSet sd = statement.executeQuery("SELECT * FROM `resident` WHERE id = "+id);
+			
+			return sd;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultSet;
+		
+	}
+	
+	
 }

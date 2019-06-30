@@ -1,5 +1,8 @@
 package application;
 import java.lang.*;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,11 +28,15 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class General {
 	
@@ -159,7 +166,7 @@ public class General {
 		}
 		
 		
-		public static void savefileresidenceimage(File selectedfile,File usrphotopth, ImageView imageView,JFXSnackbar snackbar,JFXSnackbarLayout aSnackbarLayout) {
+		public static void savefileresidenceimage(String id,File selectedfile,File usrphotopth, ImageView imageView,JFXSnackbar snackbar,JFXSnackbarLayout aSnackbarLayout) {
 		 	
 			createresidenceimageDirectory();
 			
@@ -200,6 +207,10 @@ public class General {
 																
 					Files.copy(usrphotopth.toPath(),newphotofilewithpath.toPath());
 					
+					General general = new General();
+					
+					general.loadPreviewid(id);
+					
 					aSnackbarLayout = new JFXSnackbarLayout("sfgdgdg");
 					
 					aSnackbarLayout.setStyle("-fx-background-color: #fff;"
@@ -232,6 +243,39 @@ public class General {
 
 /*UI*/
 		
+		
+	public void loadPreviewid(String id) {
+		
+		System.out.println("id generate for "+id);
+		
+FXMLLoader fxmlLoader = new FXMLLoader();
+    	
+    	fxmlLoader.setLocation(getClass().getResource("previewid.fxml"));
+    	
+    	try {
+    		
+			fxmlLoader.load();
+			
+			GenerateIdPreviewController generateIdPreviewController = fxmlLoader.getController();
+	    	
+	    	generateIdPreviewController.setid(id);
+	    	
+		       
+			Parent root1 = fxmlLoader.getRoot();
+			
+			    Stage stage = new Stage();
+			    
+			    stage.setScene(new Scene(root1));  
+			
+			    stage.show();
+			    
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	
+		
+	}	
 		
 		
 	public static void showSnackbar(JFXSnackbar snackbar,JFXSnackbarLayout aSnackbarLayout,String message,int type) {
@@ -742,6 +786,25 @@ return false;
 			}
 		    
 
+		    public static BufferedImage toBufferedImage(Image img)
+		    {
+		        if (img instanceof BufferedImage)
+		        {
+		            return (BufferedImage) img;
+		        }
+
+		        // Create a buffered image with transparency
+		        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+		        // Draw the image on to the buffered image
+		        Graphics2D bGr = bimage.createGraphics();
+		        bGr.drawImage(img, 0, 0, null);
+		        bGr.dispose();
+
+		        // Return the buffered image
+		        return bimage;
+		    }
+		    
 		
 }
 	

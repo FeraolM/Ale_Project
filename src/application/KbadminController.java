@@ -353,33 +353,11 @@ int i;
 	
     @FXML
     void createresidence(ActionEvent event) throws IOException {
-    	
-    	FXMLLoader fxmlLoader = new FXMLLoader();
-    	
-    	fxmlLoader.setLocation(getClass().getResource("previewid.fxml"));
+
     	
     	try {
-			fxmlLoader.load();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-    	
-    	GenerateIdPreviewController generateIdPreviewController = fxmlLoader.getController();
-    	
-    	generateIdPreviewController.setid("34");
-    	
-       
-		Parent root1 = fxmlLoader.getRoot();
-		
-		    Stage stage = new Stage();
-		    
-		    stage.setScene(new Scene(root1));  
-		
-		    stage.show();
-   
-    	
-    	try {
+    		
+    	String idString = null;
     	
     	String fname = etfullname.getCharacters().toString();
     	
@@ -443,14 +421,19 @@ int i;
     	
 	   while (lsressSet.next()) {
 		
-		   System.out.println(lsressSet.getString("LAST_INSERT_ID()"));
+		   idString = lsressSet.getString("LAST_INSERT_ID()");
+		   
+		 //  System.out.println(lsressSet.getString("LAST_INSERT_ID()"));
+		   
+		   
 		
 	}
 	   
 		//AccountHelper.get_last_inserted_residence();
     	
-		 General.savefileresidenceimage(selectedFile, usrphotopth, imgview,snackbar,sb_create_residence_status);
-		  
+		 General.savefileresidenceimage(idString,selectedFile, usrphotopth, imgview,snackbar,sb_create_residence_status);
+		 
+		 
 		 		  
 			/**/
     	
@@ -518,7 +501,7 @@ int i;
 				jLabel.setGraphic(new ImageView(imggImagev));
 				
 				
-				lv2.getItems().add(jLabel);
+				//lv2.getItems().add(jLabel);
 			
 			
 			
