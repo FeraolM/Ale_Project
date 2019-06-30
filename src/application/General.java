@@ -276,6 +276,9 @@ FXMLLoader fxmlLoader = new FXMLLoader();
     	
 		
 	}	
+	
+	
+	
 		
 		
 	public static void showSnackbar(JFXSnackbar snackbar,JFXSnackbarLayout aSnackbarLayout,String message,int type) {

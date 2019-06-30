@@ -18,5 +18,6 @@
 	<classpathentry kind="lib" path="libs/ikonli-javafx-2.4.0.jar"/>
 	<classpathentry kind="lib" path="libs/ikonli-material-pack-2.4.0.jar"/>
 	<classpathentry kind="lib" path="libs/ikonli-metrizeicons-pack-2.4.0.jar"/>
+	<classpathentry kind="lib" path="libs/thumbnailator-0.4.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -20,10 +21,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class KbrecordofficerController implements Initializable {
 	
@@ -124,7 +129,24 @@ public class KbrecordofficerController implements Initializable {
     @FXML
     private JFXDatePicker dateofmirage;
     
+   /*hafkjgsdjfgsdj*/
     
+    
+    
+    @FXML
+    private JFXTextField etchname;
+    
+    @FXML
+    private JFXTextField etfaname;
+    
+    @FXML
+    private JFXTextField etmname;
+    
+    @FXML
+    private JFXTextField etweight;
+    
+    @FXML
+    private JFXDatePicker cdateofbirth;
     
     
     
@@ -255,5 +277,70 @@ public class KbrecordofficerController implements Initializable {
     	recordHelper.generateMirageCertificate(bfname,bdateofbirthh, bbirthplace, gfname, gdateofbirthh, gbirthplace, miragedate, mirageplace);
 
     }
+    
+    @FXML
+    void generatebirthcertificate(ActionEvent event) {
+    	
+    	
+    	String cfname = etchname.getCharacters().toString();
+    	
+    	String fathername = etfaname.getCharacters().toString();
+    	
+    	String mothername = etmname.getCharacters().toString();
+    	
+    	String weight = etweight.getCharacters().toString();
+    	
+    	LocalDate dateofbirth = cdateofbirth.getValue();
+    	
+    ResultSet sd =	AccountHelper.birth(cfname, weight, dateofbirth, fathername, mothername);
+    	
+    	try {
+    		
+			while (sd.next()) {
+				
+			
+				loadBirthid(sd.getString("LAST_INSERT_ID()"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
+    
+    
+public void loadBirthid(String id) {
+		
+		System.out.println("id generate for "+id);
+		
+		FXMLLoader fxmlLoader = new FXMLLoader();
+    	
+    	fxmlLoader.setLocation(getClass().getResource("birth.fxml"));
+    	
+    	try {
+    		
+			fxmlLoader.load();
+			
+			birthPreviewController generateIdPreviewController = fxmlLoader.getController();
+	    	
+	    	generateIdPreviewController.setid(id);
+	    	
+		       
+			Parent root1 = fxmlLoader.getRoot();
+			
+			    Stage stage = new Stage();
+			    
+			    stage.setScene(new Scene(root1));  
+			
+			    stage.show();
+			    
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+    	
+		
+	}	
 
 }

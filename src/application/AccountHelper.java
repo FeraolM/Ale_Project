@@ -1,6 +1,8 @@
 package application;
 
+import java.security.cert.Certificate;
 import java.sql.*;
+import java.time.LocalDate;
 
 import org.apache.http.client.methods.HttpPost;
 
@@ -233,5 +235,64 @@ public class AccountHelper {
 		
 	}
 	
+	
+	public static ResultSet getBirth(String id) {
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+		ResultSet sd = statement.executeQuery("SELECT * FROM `birth` WHERE id = "+id);
+			
+			return sd;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultSet;
+		
+	}
+	
+	
+	
+	/* Certificate Generation */
+	
+
+	
+	public  static ResultSet birth(String cfname,String weight,LocalDate dateofbirth,String fathername,String mothername) {
+		
+		try {
+			
+			String child = "INSERT INTO `birth`( `fname`, `weight`, `date_of_birth`, `fatther_name`, `mother_name`) VALUES "
+					+ "(\""+cfname+"\","
+					+ "\""+weight+"\","
+					+ "\""+dateofbirth+"\","
+					+ "\""+fathername+"\","
+					+"\""+mothername+"\")";
+			
+			Statement statement= DatabaseHelper.getConnection().createStatement();
+			
+			statement.executeUpdate(child);
+			
+			ResultSet sdResultSet = statement.executeQuery("SELECT LAST_INSERT_ID();");
+			
+			return sdResultSet;
+			
+			
+			
+		} catch (SQLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultSet;
+		
+		
+		
+	}
 	
 }

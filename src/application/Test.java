@@ -72,7 +72,15 @@ public class Test {
 				+ "\""+"Welo"+"\");";
 		
 		
-		System.out.println(akjsdhgfkjlgdjk);
+		String child = "INSERT INTO `birth`( `fname`, `weight`, `date_of_birth`, `fatther_name`, `mother_name`) VALUES "
+				+ "(\""+"saf\","
+				+ "\""+"\","
+				+ "\""+"\","
+				+ "\""+"\","
+				+"\""+"ssdfd"+"\")";
+		
+		
+		System.out.println(child);
 	}
 
 	public static void testsdf () {

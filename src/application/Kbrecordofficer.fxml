@@ -185,7 +185,15 @@
                   </Tab>
                   <Tab text="Birth Certificate">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #344955;" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #344955;">
+                           <children>
+                              <JFXTextField fx:id="etchname" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="63.0" promptText="Child Full Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXTextField fx:id="etweight" focusColor="#f9aa33" labelFloat="true" layoutX="210.0" layoutY="153.0" promptText="Weight" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXTextField fx:id="etfaname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="63.0" promptText="Father Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXTextField fx:id="etmname" focusColor="#f9aa33" labelFloat="true" layoutX="475.0" layoutY="153.0" promptText="Mother Name" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXDatePicker fx:id="cdateofbirth" defaultColor="#f9aa33" layoutX="336.0" layoutY="230.0" promptText="Date Of birth" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" />
+                              <JFXButton layoutX="382.0" layoutY="352.0" onAction="#generatebirthcertificate" prefHeight="38.0" prefWidth="117.0" stylesheets="@application.css" text="Create" />
+                           </children></AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="Divorce Certificate">

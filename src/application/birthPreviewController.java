@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -30,7 +31,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import net.coobird.thumbnailator.Thumbnails;
 
-public class GenerateIdPreviewController implements Initializable {
+public class birthPreviewController implements Initializable {
 
 	@FXML
 	ImageView ivid;
@@ -55,10 +56,11 @@ public class GenerateIdPreviewController implements Initializable {
 
 	public void setid(String id) {
 
-		String idString = null, fname = null, mothername = null, placeofbirth = null, dateofbirth = null, gender = null,
-				kebele = null, wereda = null, housenumber = null, job = null, emergecname = null, emergnumber = null,
-				givendate = null, expirydate = null,
-				photourl = null;
+		String cfname = null;
+		String weight= null;
+		String dateofbirth = null;
+		String fathername = null;
+		String mothername = null;
 
 		this.asd = id;
 
@@ -67,9 +69,15 @@ public class GenerateIdPreviewController implements Initializable {
 		// imag = new
 		// FileInputStream(System.getProperty("user.dir")+"\\res\\profile.png");
 
-		lastidString = AccountHelper.getUser(this.asd);
+		lastidString = AccountHelper.getBirth(this.asd);
 
-		File file = new File(System.getProperty("user.dir") + "\\res\\id\\id.png");
+		File file = new File(System.getProperty("user.dir") + "\\res\\certificate\\birth_1.png");
+		
+		if (file.exists()) {
+			
+			System.out.println("Birth certificate found");
+			
+		}
 
 		BufferedImage image = null;
 
@@ -96,35 +104,19 @@ public class GenerateIdPreviewController implements Initializable {
 
 			while (lastidString.next()) {
 
-				idString = lastidString.getString("id");
-
-				fname = lastidString.getString("full_name");
-
+				
 				mothername = lastidString.getString("mother_name");
-				
-				placeofbirth = lastidString.getString("place_of_birth");
-				
+							
 				dateofbirth = lastidString.getString("date_of_birth");
 				
-				 gender = lastidString.getString("gender");
+				cfname = lastidString.getString("fname");
+				
+				weight = lastidString.getString("weight");
+				
+				fathername = lastidString.getString("fatther_name");
+				
 				 
-				 kebele = lastidString.getString("kebele");
-				 
-				 wereda = lastidString.getString("wereda");
-				 
-				 housenumber = lastidString.getString("house_no");
-				 
-				 job = lastidString.getString("job");
-				 
-				 emergecname = lastidString.getString("emergency_contact_name");
-				 
-				 emergnumber = lastidString.getString("emergency_contact_number");
-				 
-				 expirydate = lastidString.getString("expire_date");
-				 
-				 givendate = lastidString.getString("given_date");
-				 
-				 photourl = lastidString.getString("photo_url");
+				
 				 
 				 
 
@@ -140,58 +132,26 @@ public class GenerateIdPreviewController implements Initializable {
 
 		g2.setColor(Color.BLACK);
 
-		Font myFont = new Font("Courier New", 0, 15);
+		Font myFont = new Font("Courier New", 0, 35);
 
 		g2.setFont(myFont);
 
 		// g2.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
 
-		g2.drawString(id, 60, 27);
+		g2.drawString(id, 220, 130);
 
-		g2.drawString(fname, 140, 219); // full name
-
-		g2.drawString(mothername, 145, 262); // mother name
+		g2.drawString(cfname, 350, 300);
 		
-		  g2.drawString(placeofbirth,145, 302); // place of birth
+		g2.drawString(fathername, 235, 490);
+		
+		g2.drawString(weight, 390, 370);
+		
+		g2.drawString(mothername, 685, 485); // mother name
 		  
-		  g2.drawString(dateofbirth,145, 335); // date of birth
+		g2.drawString(dateofbirth,815, 370); // date of birth
 		  
-		  g2.drawString(gender,145, 364); // gender
-		  
-		  g2.drawString(kebele,450, 80); // kebele
-		  
-		  g2.drawString(wereda,450, 112); // gender
-		  
-		  g2.drawString(housenumber, 508, 155);
-		  
-		  g2.drawString(job, 425, 182);
-		  
-		  g2.drawString(emergecname, 588, 210);
-		  
-		  g2.drawString(emergnumber, 600, 245);
-		  
-		  g2.drawString(givendate, 480, 280);
-		  
-		  g2.drawString(expirydate, 482, 310);
-		  
-		  try {
-			  
-		//	  File fileas = new File(System.getProperty("user.dir") + "\\res\\id\\id.png");
-			  
-			  BufferedImage imagen = new BufferedImage(135,200 , BufferedImage.TYPE_INT_ARGB);
-			  
-			
-			  
-			imagen = ImageIO.read(new File(System.getProperty("user.dir") + photourl));
-			
-			imagen =  resize(imagen, 140, 230);
-			
-			 g2.drawImage(imagen, 51, 51, null);
-		 	 
-		  } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 
+	
 		  
 		 
 
