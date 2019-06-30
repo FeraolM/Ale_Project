@@ -42,7 +42,10 @@ import com.jfoenix.validation.base.ValidatorBase;
 
 import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
 
+import javafx.animation.KeyValue;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -227,6 +230,37 @@ public class KbadminController implements Initializable {
     
     
     
+    /*renew id*/
+    
+    
+    @FXML
+    private JFXTextField etidfieField;
+    
+    @FXML
+    private Label givendateLabel;
+    
+    @FXML
+    private Label expirydateLabel;
+    
+    @FXML
+    private FontIcon statusFontIcon;
+    
+    
+    @FXML
+    private JFXButton renewButton;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     static String currentDirectory = System.getProperty("user.dir");
 	 
 	 static String accountimagesdirectory = "\\account_images";
@@ -253,6 +287,8 @@ public class KbadminController implements Initializable {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
+			renewButton.setDisable(true);
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -263,6 +299,8 @@ public class KbadminController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		typelist = FXCollections.observableArrayList("Kebele","Private");
+		
+		renewButton.setDisable(true);
 		
 		//cmgender.setItems(typelist);
 		// TODO Auto-generated method stub
@@ -674,6 +712,89 @@ int i;
 		 */
 			
 		}
+	    
+	    
+	    @FXML
+	    void renewid(ActionEvent event) {
+	    	
+	  
+			
+	    	
+	    	String idString = etidfieField.getCharacters().toString();
+	    	
+	    	String	expirydateStringasfsf = expirydateLabel.getText();
+	    	
+	    	AccountHelper.renewId(idString,expirydateStringasfsf);
+	    	
+	    	getidstatus(event);
+	    	
+	    	General general = new General();
+			
+			general.loadPreviewid(idString);
+	    	
+
+	    }
+	    
+	    @FXML
+	    void getidstatus(ActionEvent event) {
+	    	
+	    	String idString = etidfieField.getCharacters().toString();
+	    	
+	    	String staString = null;
+	    	
+	    	String expirydateString = null;
+	    	
+	    	String givendateString = null;
+	    	
+	    	boolean booleanBind = idString.isEmpty();
+	    	
+	    	
+	    	
+	    	
+	    	ResultSet aSet = AccountHelper.getStatus(idString);
+	    	
+	    	try {
+	    		
+	    		while (aSet.next()) {
+	    			
+	    			staString = aSet.getString("active");
+	    			
+	    			expirydateString = aSet.getString("expire_date");
+	    			
+	    			givendateString = aSet.getString("given_date");    			
+					
+				}
+	    		
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+	    	
+			    	if (staString.equals("1")) {
+						
+			    		statusFontIcon.setIconLiteral("fa-check-square-o");
+			    		
+			    		renewButton.setDisable(true);
+			    		
+			    		
+					}
+			    	
+			    	else {
+			    		
+						statusFontIcon.setIconLiteral("fa-close");
+						
+						
+						
+						renewButton.setDisable(false);
+					}
+			    	
+			   givendateLabel.setText(givendateString);
+			   
+			   expirydateLabel.setText(expirydateString);
+	    	
+	    	
+
+	    }
 	
 	
 }

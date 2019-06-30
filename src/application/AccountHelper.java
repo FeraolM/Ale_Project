@@ -56,6 +56,7 @@ public class AccountHelper {
 	            
 		
 		String givendate = "CURDATE()";
+		
 		String expiredate = "DATE_ADD(CURDATE(), INTERVAL 365*2 DAY)";
 		
 		//CURRENT_DATE
@@ -385,5 +386,69 @@ public static ResultSet getMirage(String id) {
 		
 		
 	}
+	
+	
+public static ResultSet getStatus(String id) {
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+		ResultSet sd = statement.executeQuery("SELECT * FROM `resident` WHERE id = "+id);
+			
+			return sd;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultSet;
+		
+	}
+
+
+public static void renewId(String id,String olddate) {
+	
+	System.out.println("Old date "+olddate);
+	
+	try {
+		
+		
+
+		
+		LocalDate jhj = LocalDate.parse(olddate);
+		
+		jhj.plusDays(724);
+		
+		String givendate = "CURDATE()";
+		
+		
+		String expiredate = "DATE_ADD(CURDATE(), INTERVAL 365*2 DAY)";
+		
+		//String sdgdgString= "UPDATE `resident` SET `active` =\"1\",`given_date`="+givendate+",`expire_date` ="+jhj+"WHERE id = "+id;
+		
+	//	System.out.println(sdgdgString);
+		
+		Statement statement = DatabaseHelper.getConnection().createStatement();
+		
+		statement.executeUpdate("UPDATE `resident` SET `active` = \"1\",`given_date`= "+givendate+",`expire_date` = "+expiredate+" WHERE id = "+id);
+		
+		//String kjhjkdString= "UPDATE `resident` SET `active` =\"1\",`given_date`="+givendate+",`expire_date` ="+jhj+"WHERE id = "+id;
+		
+
+		
+		getStatus(id);
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
+}
 	
 }
