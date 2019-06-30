@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MiragePreviewController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="btnprintid" buttonType="RAISED" layoutX="806.0" layoutY="503.0" prefHeight="42.0" prefWidth="118.0" text="Print Certificate" />
+            <ImageView fx:id="ivid" fitHeight="472.0" fitWidth="955.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lb1" layoutX="25.0" layoutY="515.0" prefHeight="18.0" prefWidth="54.0" text="Label" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -257,6 +257,27 @@ public class AccountHelper {
 		
 	}
 	
+public static ResultSet getMirage(String id) {
+		
+		try {
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+		ResultSet sd = statement.executeQuery("SELECT * FROM `mirage` WHERE id = "+id);
+			
+			return sd;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultSet;
+		
+	}
+	
 	
 	
 	/* Certificate Generation */

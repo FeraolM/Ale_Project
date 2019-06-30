@@ -343,4 +343,38 @@ public void loadBirthid(String id) {
 		
 	}	
 
+
+public void loadMirageid(String id) {
+	
+	System.out.println("id generate for "+id);
+	
+	FXMLLoader fxmlLoader = new FXMLLoader();
+	
+	fxmlLoader.setLocation(getClass().getResource("mirage.fxml"));
+	
+	try {
+		
+		fxmlLoader.load();
+		
+		MiragePreviewController generateIdPreviewController = fxmlLoader.getController();
+    	
+    	generateIdPreviewController.setid(id);
+    	
+	       
+		Parent root1 = fxmlLoader.getRoot();
+		
+		    Stage stage = new Stage();
+		    
+		    stage.setScene(new Scene(root1));  
+		
+		    stage.show();
+		    
+	} catch (IOException e2) {
+		// TODO Auto-generated catch block
+		e2.printStackTrace();
+	}
+	
+	
+}	
+
 }

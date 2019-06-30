@@ -119,7 +119,7 @@ public static ResultSet gethouse(String housenumber) {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader();
     	
-    	fxmlLoader.setLocation(getClass().getResource("previewid.fxml"));
+    	fxmlLoader.setLocation(getClass().getResource("mirage.fxml"));
     	
     	try {
 			fxmlLoader.load();
@@ -128,7 +128,7 @@ public static ResultSet gethouse(String housenumber) {
 			e2.printStackTrace();
 		}
     	
-    	GenerateIdPreviewController generateIdPreviewController = fxmlLoader.getController();
+    	MiragePreviewController generateIdPreviewController = fxmlLoader.getController();
     	
     	generateIdPreviewController.setid(lastid);
     	
