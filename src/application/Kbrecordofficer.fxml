@@ -220,7 +220,17 @@
                   </Tab>
                   <Tab text="Population">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
+                           <children>
+                              <JFXTextField fx:id="tfpopulation" editable="false" focusColor="#f79a8f" layoutX="381.0" layoutY="85.0" styleClass="edittextmaterial" stylesheets="@application.css" unFocusColor="WHITE" />
+                              <Label layoutX="238.0" layoutY="81.0" text="Population" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-group" iconSize="23" layoutX="199.0" layoutY="103.0" />
+                              <JFXButton layoutX="423.0" layoutY="159.0" onAction="#generatePopulation" prefHeight="38.0" prefWidth="94.0" stylesheets="@application.css" text="Count" />
+                           </children></AnchorPane>
                      </content>
                   </Tab>
                </tabs>

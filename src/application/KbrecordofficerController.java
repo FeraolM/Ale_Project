@@ -180,6 +180,16 @@ public class KbrecordofficerController implements Initializable {
     @FXML
     private JFXDatePicker dateofdeath;
     
+/* Population*/
+    
+    
+    
+    @FXML
+    private JFXTextField tfpopulation;
+    
+
+ 
+    
       
     
     
@@ -450,6 +460,27 @@ public void loadMirageid(String id) {
 	    	
 	    	recordHelper.generateDeathCertificate(sdfString, dLocalDate,dplace);
 	    	
+	    }
+	    
+	    @FXML
+	    void generatePopulation(ActionEvent event) {
+	    	
+	    	ResultSet resultSet = AccountHelper.getPopulation();
+	    	
+	    	try {
+	    		
+	    		
+	    		while (resultSet.next()) {
+					
+	    		tfpopulation.setText(resultSet.getString("COUNT(id)"));
+					
+				}
+	    		
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+
 	    }
 
 }

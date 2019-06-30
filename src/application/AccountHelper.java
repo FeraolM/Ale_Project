@@ -257,6 +257,34 @@ public class AccountHelper {
 		
 	}
 	
+	
+public static ResultSet getPopulation() {
+		
+		try {
+		
+			//SELECT COUNT(id) FROM resident
+			
+			//COUNT(id)
+			
+			
+			
+			Statement statement = DatabaseHelper.getConnection().createStatement();
+			
+		ResultSet sd = statement.executeQuery("SELECT COUNT(id) FROM resident");
+			
+			return sd;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultSet;
+		
+	}
+	
 public static ResultSet getDeath(String id) {
 		
 		try {

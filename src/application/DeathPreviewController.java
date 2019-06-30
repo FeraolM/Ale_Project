@@ -133,7 +133,7 @@ public class DeathPreviewController implements Initializable {
 
 		// g2.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
 
-		g2.drawString(id, 220, 130);
+		g2.drawString(id, 370, 44);
 
 		g2.drawString(dname, 45, 270);
 		
