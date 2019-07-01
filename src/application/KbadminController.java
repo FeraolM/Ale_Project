@@ -51,10 +51,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -587,13 +589,35 @@ int i;
 
 	    @FXML
 	    void logout(ActionEvent event) {
-	
-		  System.out.println("Logout");
-		  Platform.exit();
-	        System.exit(0);
+	    	
+	    	
+	    	
+	    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+  	    	
+  	    	
+  			try {
+  				
+  				((Node)event.getSource()).getScene().getWindow().hide();
+  				
+  			    Parent	root1 = (Parent) fxmlLoader.load();
+  			    
+  			    
+  				Stage stage = new Stage();
+  				
+  				stage.setTitle("Login");
+  				
+  		    	stage.setScene(new Scene(root1));  
+  		    	stage.show();
+			/*
+			 * System.out.println("Logout"); Platform.exit(); System.exit(0);
+			 */
 
-	    }
+	    } catch (Exception e) {
+			// TODO: handle exception
+		}
 	    
+  			
+	    }
 	    @FXML
 	    void searchuser(ActionEvent event) {
 	    	
@@ -800,6 +824,8 @@ int i;
 	    	
 
 	    }
+	    
+	 
 	
 	
 }
