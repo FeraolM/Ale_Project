@@ -23,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -483,4 +484,33 @@ public void loadMirageid(String id) {
 
 	    }
 
+	    
+	    @FXML
+	    void logout(ActionEvent event) {
+
+	    	
+FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+  	    	
+  	    	
+  			try {
+  				
+  				((Node)event.getSource()).getScene().getWindow().hide();
+  						
+  				
+  			    Parent	root1 = (Parent) fxmlLoader.load();
+  			    
+  			    AccountHelper.sessionid = "0";
+  			    
+  				Stage stage = new Stage();
+  				
+  				stage.setTitle("Login");
+  				
+  		    	stage.setScene(new Scene(root1));  
+  		    	stage.show();
+  		    	
+  			} catch (Exception e) {
+				// TODO: handle exception
+			}
+	    	
+	    }
 }

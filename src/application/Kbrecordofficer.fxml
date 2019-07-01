@@ -233,6 +233,19 @@
                            </children></AnchorPane>
                      </content>
                   </Tab>
+                  <Tab text="Logout">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
+                           <children>
+                              <JFXButton buttonType="RAISED" layoutX="423.0" layoutY="159.0" onAction="#logout" prefHeight="38.0" prefWidth="151.0" stylesheets="@application.css" text="Log Out">
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="23" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
                </tabs>
             </JFXTabPane>
          </children>

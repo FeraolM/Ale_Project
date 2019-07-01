@@ -72,6 +72,22 @@
                   <FontIcon iconColor="WHITE" iconLiteral="gmi-group" iconSize="23" />
                </graphic>
             </Tab>
+            <Tab text="Logout">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton layoutX="383.0" layoutY="125.0" onAction="#logout" prefHeight="37.0" prefWidth="102.0" text="Log Out">
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="23" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="23" />
+               </graphic>
+            </Tab>
          </tabs>
       </JFXTabPane>
    </children>
