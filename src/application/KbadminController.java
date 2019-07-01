@@ -599,8 +599,11 @@ int i;
   				
   				((Node)event.getSource()).getScene().getWindow().hide();
   				
+  				
+  				
   			    Parent	root1 = (Parent) fxmlLoader.load();
   			    
+  			    AccountHelper.sessionid = "0";
   			    
   				Stage stage = new Stage();
   				
