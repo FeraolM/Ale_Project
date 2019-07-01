@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXSnackbar?>
 <?import com.jfoenix.controls.JFXTabPane?>
@@ -12,8 +13,8 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane fx:id="anch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #344955;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController">
    <children>
@@ -23,12 +24,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #344955;">
                      <children>
+                        <JFXPasswordField fx:id="etpassword" blendMode="SCREEN" focusColor="WHITE" labelFloat="true" layoutX="315.0" layoutY="114.0" prefHeight="34.0" prefWidth="402.0" promptText="Password" style="-fx-text-fill: #fff;" unFocusColor="WHITE" />
                         <JFXTextField fx:id="etusername" blendMode="SCREEN" focusColor="#22bcff" labelFloat="true" layoutX="315.0" layoutY="46.0" prefHeight="24.0" prefWidth="403.0" promptText="Username" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="etpassword" blendMode="SCREEN" focusColor="#22bcff" labelFloat="true" layoutX="315.0" layoutY="104.0" prefHeight="24.0" prefWidth="403.0" promptText="Password" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -47,8 +44,14 @@
                            </viewport>
                         </ImageView>
                         <JFXButton fx:id="choosephotobtn" alignment="CENTER" buttonType="RAISED" layoutX="435.0" layoutY="268.0" onAction="#chooseimage" prefHeight="40.0" prefWidth="169.0" ripplerFill="WHITE" stylesheets="@application.css" text="Choose Photo..." />
+                        <FontIcon iconColor="#fd8b09" iconLiteral="fa-user" iconSize="28" layoutX="278.0" layoutY="73.0" />
+                        <FontIcon iconColor="#fd8b09" iconLiteral="fa-key" iconSize="28" layoutX="278.0" layoutY="141.0" />
+                        <!-- <JFXPasswordField fx:id="etpassword" blendMode="SCREEN" focusColor="#f2f2f2" layoutX="315.0" layoutY="154.0" prefHeight="34.0" prefWidth="405.0" promptText="Password" style="-fx-text-fill: #fff;" unFocusColor="WHITE" /> -->
                      </children></AnchorPane>
               </content>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="gmi-create-new-folder" iconSize="23" />
+               </graphic>
             </Tab>
             <Tab text="Users">
                <content>
@@ -65,19 +68,9 @@
                         </TableView>
                      </children></AnchorPane>
                </content>
-            </Tab>
-            <Tab text="View">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0">
-                     <children>
-                        <VBox prefHeight="550.0" prefWidth="138.0">
-                           <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="138.0" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="gmi-group" iconSize="23" />
+               </graphic>
             </Tab>
          </tabs>
       </JFXTabPane>

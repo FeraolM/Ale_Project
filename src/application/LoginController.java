@@ -96,6 +96,7 @@ public class LoginController implements Initializable {
 					  				((Node)event.getSource()).getScene().getWindow().hide();
 					  				
 					  				root1 = (Parent) fxmlLoader.load();
+					  				
 					  				Stage stage = new Stage();
 					  				
 					  				stage.setTitle("System Administrator");

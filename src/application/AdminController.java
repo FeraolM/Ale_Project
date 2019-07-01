@@ -16,6 +16,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXSnackbarLayout;
@@ -69,7 +70,7 @@ public class AdminController implements Initializable {
     private  JFXTextField etusername;
 
     @FXML
-    private  JFXTextField etpassword;
+    private  JFXPasswordField etpassword;
 	
     @FXML
     private  JFXRadioButton sysadminrd;
