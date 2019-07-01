@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXPasswordField?>
@@ -11,7 +10,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
@@ -237,13 +235,11 @@
                               </JFXTextField>
                               <JFXDialog fx:id="dgalert" />
                               <JFXSnackbar fx:id="sb_create_residence_status" />
-                              <ProgressIndicator disable="true" layoutX="385.0" layoutY="218.0" prefHeight="51.0" prefWidth="64.0" progress="1.0" style="-fx-text-fill: #fff;" />
-                              <JFXTextField fx:id="etgender" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="756.0" layoutY="63.0" prefHeight="38.0" prefWidth="118.0" promptText="Gender" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
+                              <JFXTextField fx:id="etgender" blendMode="SCREEN" focusColor="#ffd89c" labelFloat="true" layoutX="756.0" layoutY="33.0" prefHeight="38.0" prefWidth="118.0" promptText="Gender" style="-fx-text-fill: #fff;" styleClass="text-field" unFocusColor="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXComboBox fx:id="cmgender" layoutX="770.0" layoutY="33.0" promptText="Gender" />
                            </children>
                         </AnchorPane>
                     </content>
