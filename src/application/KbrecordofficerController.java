@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -190,6 +191,11 @@ public class KbrecordofficerController implements Initializable {
     
 
  
+ /*update password*/
+    
+
+    @FXML
+    private JFXPasswordField etpassword;
     
       
     
@@ -489,7 +495,7 @@ public void loadMirageid(String id) {
 	    void logout(ActionEvent event) {
 
 	    	
-FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+	    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
   	    	
   	    	
   			try {
@@ -512,5 +518,26 @@ FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 				// TODO: handle exception
 			}
 	    	
+	    }
+	    
+	    @FXML
+	    void updateaccountpassword(ActionEvent event) {
+	    
+			   
+			   String password = etpassword.getCharacters().toString();
+			   
+			  
+			   AccountHelper.changePassword(password);
+			   
+			   String toastMsg = "Password Changed Successfully";
+	  			int toastMsgTime = 2500; //3.5 seconds
+	  			int fadeInTime = 200; //0.5 seconds
+	  			int fadeOutTime= 200; //0.5 seconds
+	  			
+	  			Toast.makeText(Main.getStage(), toastMsg, toastMsgTime, fadeInTime, fadeOutTime);
+			   
+			   System.out.println("Cliked Update button");
+	    	
+
 	    }
 }
