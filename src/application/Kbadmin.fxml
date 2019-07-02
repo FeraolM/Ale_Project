@@ -308,8 +308,11 @@
                               <AnchorPane layoutX="272.0" layoutY="131.0" prefHeight="273.0" prefWidth="318.0">
                                  <children>
                                     <FontIcon iconColor="WHITE" iconLiteral="fa-lock" iconSize="40" layoutX="47.0" layoutY="138.0" />
-                                    <JFXPasswordField fx:id="etpassword" focusColor="#18beff" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="206.0" style="-fx-text-fill: #fff;" unFocusColor="#e2e2e2" />
-                                    <JFXButton layoutX="185.0" layoutY="175.0" onAction="#updateaccountpassword" prefHeight="38.0" prefWidth="113.0" stylesheets="@application.css" text="Update" />
+                                    <JFXPasswordField fx:id="etpassword" blendMode="SCREEN" focusColor="#18beff" labelFloat="true" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="206.0" promptText="New Password" style="-fx-text-fill: #fff;" unFocusColor="#e2e2e2" />
+                                    <JFXButton layoutX="185.0" layoutY="175.0" onAction="#updateaccountpassword" prefHeight="38.0" prefWidth="113.0" stylesheets="@application.css" text="Update">
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-refresh" iconSize="23" />
+                                       </graphic></JFXButton>
                                     <JFXButton layoutX="28.0" layoutY="172.0" onAction="#logout" stylesheets="@application.css" text="Log Out">
                                        <graphic>
                                           <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="27" />

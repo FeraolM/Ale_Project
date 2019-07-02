@@ -354,6 +354,15 @@ int i;
 		  
 		   AccountHelper.changePassword(password);
 		   
+		   
+		   String toastMsg = "Password Changed Successfully";
+  			int toastMsgTime = 2500; //3.5 seconds
+  			int fadeInTime = 200; //0.5 seconds
+  			int fadeOutTime= 200; //0.5 seconds
+  			
+  			Toast.makeText(Main.getStage(), toastMsg, toastMsgTime, fadeInTime, fadeOutTime);
+		   
+		   
 		   System.out.println("Cliked Update button");
     	
 

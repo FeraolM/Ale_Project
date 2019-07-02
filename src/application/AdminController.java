@@ -105,6 +105,9 @@ public class AdminController implements Initializable {
     private JFXButton choosephotobtn;
     
     @FXML
+    private JFXPasswordField etupdaetPasswordField;
+    
+    @FXML
     private ListView<javafx.scene.control.Label> lv1;
     
     
@@ -404,6 +407,28 @@ FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 			// TODO: handle exception
 		}
     	
+    }
+    
+    
+    @FXML
+    void updateaccountpassword(ActionEvent event) {
+    
+		   
+		   String password = etupdaetPasswordField.getCharacters().toString();
+		   
+		  
+		   AccountHelper.changePassword(password);
+		   
+		   String toastMsg = "Password Changed Successfully";
+  			int toastMsgTime = 2500; //3.5 seconds
+  			int fadeInTime = 200; //0.5 seconds
+  			int fadeOutTime= 200; //0.5 seconds
+  			
+  			Toast.makeText(Main.getStage(), toastMsg, toastMsgTime, fadeInTime, fadeOutTime);
+		   
+		   System.out.println("Cliked Update button");
+    	
+
     }
 	
 }

@@ -7,6 +7,7 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -72,22 +73,35 @@
                   <FontIcon iconColor="WHITE" iconLiteral="gmi-group" iconSize="23" />
                </graphic>
             </Tab>
-            <Tab text="Logout">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <JFXButton layoutX="383.0" layoutY="125.0" onAction="#logout" prefHeight="37.0" prefWidth="102.0" text="Log Out">
-                           <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="23" />
-                           </graphic>
-                        </JFXButton>
-                     </children>
-                  </AnchorPane>
-               </content>
-               <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="23" />
-               </graphic>
-            </Tab>
+            <Tab text="Setting">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="914.0" style="-fx-background-color: #292929;">
+                           <children>
+                              <Label alignment="TOP_CENTER" layoutX="295.0" layoutY="25.0" lineSpacing="1.0" prefHeight="41.0" prefWidth="272.0" style="-fx-text-fill: #fff;" text="Settings" textFill="WHITE">
+                                 <font>
+                                    <Font size="44.0" />
+                                 </font>
+                              </Label>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-gear" iconSize="41" layoutX="310.0" layoutY="72.0" />
+                              <AnchorPane layoutX="272.0" layoutY="131.0" prefHeight="273.0" prefWidth="318.0">
+                                 <children>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fa-lock" iconSize="40" layoutX="47.0" layoutY="138.0" />
+                                    <JFXPasswordField fx:id="etupdaetPasswordField" blendMode="SCREEN" focusColor="#18beff" labelFloat="true" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="206.0" promptText="New Password" style="-fx-text-fill: #fff;" unFocusColor="#e2e2e2" />
+                                    <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="179.0" onAction="#updateaccountpassword" prefHeight="38.0" prefWidth="114.0" stylesheets="@application.css" text="Update" />
+                                    <JFXButton alignment="CENTER" layoutX="51.0" layoutY="179.0" onAction="#logout" stylesheets="@application.css" text="Log Out">
+                                       <graphic>
+                                          <FontIcon iconColor="WHITE" iconLiteral="fa-sign-out" iconSize="27" />
+                                       </graphic>
+                                    </JFXButton>
+                              <FontIcon iconColor="WHITE" iconLiteral="fa-refresh" iconSize="22" layoutX="187.0" layoutY="208.0" text="" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </content>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fa-gears" iconSize="23" />
+                     </graphic>
+                  </Tab>
          </tabs>
       </JFXTabPane>
    </children>
